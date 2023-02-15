@@ -1,13 +1,18 @@
 #screen {
+  padding: 0;
+  margin: 0;
+
   aspect-ratio: 16/9;
-  /* height: 100%; */
-  width: 100%;
   position: relative;
-  /* display: grid;
-    grid-template-columns: auto; */
+  display: grid;
+  grid-template-columns: auto;
+  height: 100%;
+  width: 100%;
 }
 
 #game {
+  /* margin-top: 0;
+  margin-left: 0; */
   height: 100%;
   width: 100%;
   position: absolute;
@@ -15,24 +20,24 @@
 }
 
 #game_start {
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 30%;
   position: absolute;
   /* background-image: url("images/Window.png");
   background-size: 100% 100%; */
 }
 
 #game_over {
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 30%;
   position: absolute;
   /* background-image: url("images/Window.png");
   background-size: 100% 100%; */
 }
 
 #level_complete {
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 30%;
   position: absolute;
   /* background-image: url("images/Window.png");
   background-size: 100% 100%; */
@@ -52,14 +57,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 10%;
-  left: 10%;
 }
+
 #game_ui {
   width: 100%;
   height: 100%;
   position: absolute;
-
   display: grid;
   grid-template-columns: auto auto auto;
 }
@@ -68,6 +71,7 @@
   width: 10%;
   height: 15%;
   position: absolute;
+  left: 40px;
 }
 #frustrated_sprite {
   height: 100%;
@@ -78,6 +82,7 @@
   width: 10%;
   height: 15%;
   position: absolute;
+  left: 40px;
 }
 #start_sprite {
   height: 100%;
@@ -88,6 +93,7 @@
   width: 10%;
   height: 15%;
   position: absolute;
+  left: 40px;
 }
 #over_sprite {
   height: 100%;
@@ -98,6 +104,7 @@
   width: 50%;
   height: 10%;
   position: absolute;
+  left: 40px;
 }
 #complete_sprite {
   height: 100%;
