@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Winner Winner Christmas Dinner</title>
-</head>
-    <body>
-        <div id="screen">
-            <div id="game">
-                <div id="game_background"></div>
-                <div id="game_element">
-
-                    <div id="frustrated_container">
-                        <img src="images\frustrated smiley.png" id="frustrated_sprite" alt="frustraed smiley"> 
-                    </div>
-                    <div id="uhf1"> 
-                        
-                    </div>
-
-                </div>
-                <div id="game_foreground">  </div>
-                <div id = "game_ui">
-                    <div id="score_board">Score:</div>
-                    <div id="time_board">Time:</div>
-                    <div id="life_board">Frustration:</div>
-                </div>
-                       
-                    
-                
-            </div>
-            <div id="start"> </div>
-            <div id="game_over"></div>
-            <div id="level_complete"></div>
+  </head>
+  <body>
+    <div id="screen">
+      <div id="game">
+        <div id="game_background"></div>
+        <div id="game_element">
+          <div id="frustrated_container">
+            <img
+              src="images\frustrated smiley.png"
+              id="frustrated_sprite"
+              alt="frustraed smiley"
+            />
+          </div>
+          <div id="uhf1"></div>
         </div>
-    </body>
+        <div id="game_foreground"></div>
+        <div id="game_ui">
+          <div id="score_board">Score:</div>
+          <div id="time_board">Time:</div>
+          <div id="life_board">Frustration:</div>
+        </div>
+      </div>
+
+      <div id="game_start">
+        <div id="start_container">
+          <img id=start_sprite src="images/startbutton.png" />
+        </div>
+      </div>
+
+      <div id="game_over">
+        <div id="over_container">
+          <img id=over_sprite src="images/levelfailed.png" />
+        </div>
+      </div>
+
+      <div id="level_complete">
+        <div id="complete_container">
+          <img id=complete_sprite src="images/levelcomplete.png" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
