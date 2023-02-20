@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Winner Winner Christmas Dinner</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <title>Dinner Party</title>
+</head>
+<body>
     <div id="screen">
-        <div id="game">
+        <div id =game>
             
-            <div id="game_background"></div>
-            
-            <div id="game_element"></div>
-            
-            <div id="uhf1"></div>
-        
-        
-            <div id="game_foreground"></div>
-
-            <div id="game_ui">
-                <div id="score_board">Score:</div>
-                <div id="time_board">Time:</div>
-                        
-                <div id="life_board" class="row">
-                    <div id="frustrated_container" class="column">
-                        <img src="images\frustrated smiley.png" id="frustrated_sprite" class="frustrated_img" alt="frustraed smiley"/>
-  
+            <div id= game_background></div>
+            <div id="game_elements">
+               
+                
+                    <div id="turkey_container" class="animation_food">
+                        <img id="turkey_sprite"  src="images/Turkey.png" alt="turkey">
+                    </div>    
+                
+                    <div id="pie_container" class="animation_food">
+                        <img id="pie_sprite" src="images/Pie.png" alt="butter1">
                     </div>
 
-                    <div id="frustrated_container2" class="column">
-                            <img src="images\frustrated smiley.png" id="frustrated_sprite" class="frustrated_img" alt="frustraed smiley"/>
-    
-                        </div>
+                    <div id="butter_container" class="animation_food">
+                        <img id="butter_sprite" src="images/butter.png" alt="butter2">
+                    </div>
 
-                    <div id="frustrated_container3" class="column">
-                            <img src="images\frustrated smiley.png" id="frustrated_sprite" class="frustrated_img" alt="frustraed smiley"/>
-    
-                        </div>    
+                
+                    <div id="cabbage_container" class="animation_food">
+                        <img id="cabbage_sprite" src="images/Cabbage.png">
+                    </div>
+                    <div id="carrot_container" class="animation_food">
+                        <img id="carrot_sprite" src="images/Carrot.png" >
+                    </div>
 
-                    <div id="frustrated_container4"class="column">
-                            <img src="images\frustrated smiley.png" id="frustrated_sprite" class="frustrated_img"  alt="frustraed smiley"/>
-    
-                        </div>    
-        
+                    <div id="tomato_container" class="animation_food">
+                        <img id="tomato_sprite" src="images/Tomato.png" >
+                    </div>
+                
+
+                 
+                    <div id="hand_container" class="hand_animation">
+                        <img id="hand_sprite" src="images/hand.png" >
+                    </div>
+                
+                
+                
+                    <div id="slap_container" class="slap_animation">
+                        <img id="slap_sprite" src="images/slap.png" >
+                    </div>
+                
+
+                <div id="smileys_container">
+                    <img id="smileys_sprite" src="images/smileys.png" alt="smiley">
+                </div>
+
+                <div id="angry_container">
+                    <img id="angry_sprite" src="images/angry.png" alt="angry">
                 </div>
             </div>
-        </div>
-      
-      <div id="game_start" class="hidden">
-        <div id="start_container">
-          <img id=start_sprite src="images/startbutton.png" />
-        </div>
-      </div>
+            <div id="game_foreground"></div>
+            
+            <div id="game_ui">
+                <div id="score_board"></div>
+                <div id="life_board"></div>
+                <div id="time_board"></div>
 
-      <div id="game_over" class="hidden">
-        <div id="over_container">
-          <img id=over_sprite src="images/levelfailed.png" />
-        </div>
-      </div>
+            </div>
 
-      <div id="level_complete" class="hidden">
-        <div id="complete_container">
-          <img id=complete_sprite src="images/levelcomplete.png" />
         </div>
-      </div>
+
+        <div id="start"></div>
+        <div id="game_over"></div>
+        <div id="level_complete"></div>
+
     </div>
-  </body>
+
+</body>
 </html>

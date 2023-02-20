@@ -1,140 +1,214 @@
-#screen {
-  aspect-ratio: 16/9;
-  position: relative;
-  display: grid;
-  grid-template-columns: auto;
-  height: 100%;
-  width: 100%;
+body{
+    margin: 0;
+}
+
+#screen{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 
 #game {
-  /* margin-top: 0;
-  margin-left: 0; */
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  /* background-image: ; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
-
-#game_start {
-  height: 90%;
-  width: 30%;
-  position: absolute;
-  /* background-image: url("images/Window.png");
-  background-size: 100% 100%; */
-}
-
-#game_over {
-  height: 90%;
-  width: 30%;
-  position: absolute;
-  /* background-image: url("images/Window.png");
-  background-size: 100% 100%; */
+#start {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* background-image: url(); */
 }
 
 #level_complete {
-  height: 90%;
-  width: 30%;
-  position: absolute;
-  /* background-image: url("images/Window.png");
-  background-size: 100% 100%; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* background-image: url(); */
 }
 
 #game_background {
-  height: 100%;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  position: absolute;
-  background-image: url("images/background(1).png");
-  background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-image: url("images/background(1).png");
+    background-size: 100% 100%;
 }
 
-#game_element {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+#game_elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
 
-/* ----ui Elementer---- */
 #game_ui {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  
-  /* position: absolute; */
-  margin-left: 20%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
 }
 
-.column {
-  /* Creating columns in life_board */
-  width: 5%;
-  /* float places next HTML element next to thisElement */
-  float: left;
+/*--------- Game-elements------------ */
+#turkey_container{
+    width: 13%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
 }
 
-#frustrated_container {
-  margin: 0;
-  padding: 0;
-  width: 10%;
-  height: 10%;
+#turkey_sprite{
+    width: 100%;
+    height: 100%;
 }
 
-#frustrated_container2 {
-  margin: 0;
-  padding: 0;
-  width: 10%;
-  height: 10%;
+#pie_container{
+    width: 13%;
+    position: absolute;
+    top: 25%;
+    left: 51%;
 }
 
-#frustrated_container3 {
-  margin-top: 0;
-  padding-top: 0;
-  width: 10%;
-  height: 10%;
+#pie_sprite{
+    width: 100%;
+    height: 100%;
+}
+#butter_container{
+    width: 5%;
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    
 }
 
-#frustrated_container4 {
-  margin-top: 0;
-  padding-top: 0;
-  width: 10%;
-  height: 10%;
-}
-#frustrated_sprite {
-  height: 100%;
-  width: 100%;
+#butter_sprite{
+    width: 100%;
+    height: 100%;
+    
 }
 
-#start_container {
-  width: 10%;
-  height: 15%;
-  position: absolute;
-  left: 40px;
-}
-#start_sprite {
-  height: 100%;
-  width: 100%;
+#tomato_container{
+    width: 5%;
+    position: absolute;
+    top: 25%;
+    left: 57%;
 }
 
-#over_container {
-  width: 10%;
-  height: 15%;
-  position: absolute;
-  left: 40px;
+#tomato_sprite{
+    width: 100%;
+    height: 100%;
 }
-#over_sprite {
-  height: 100%;
-  width: 100%;
+#carrot_container{
+    width: 10%;
+    position: absolute;
+    top: 25%;
+    left: 56%;
 }
 
-#complete_container {
-  width: 50%;
-  height: 10%;
-  position: absolute;
-  left: 40px;
+#carrot_sprite{
+    width: 100%;
+    height: 100%;
+   
 }
-#complete_sprite {
-  height: 100%;
-  width: 100%;
+
+#cabbage_container{
+    width: 10%;
+    position: absolute;
+    top: 25%;
+    left: 56%;
+}
+#cabbage_sprite{
+    width: 100%;
+    height: 100%;
+}
+
+#hand_container{
+    width: 40%;
+    height:100%;
+    position: absolute;
+    top: 20%;
+    left: -36%;
+    
+}
+
+#hand_sprite{
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
+}
+
+#slap_container{
+    width: 10%;
+    position: absolute;
+    top: -0%;
+    left: 56%;
+}
+
+#slap_sprite{
+    width: 100%;
+    height: 100%;
+}
+
+#smileys_container{
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+}
+
+#smileys_sprite{
+    width: 100%;
+    height: 100%;
+}
+
+#angry_container{
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+}
+
+#angry_sprite{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+/* ui-elementer */
+#time_board {
+    width: 5.6%;
+    position: absolute;
+    top: 66.5%;
+    left: 4%;
+}
+#score_board {
+    width: 23%;
+    position: absolute;
+    top: 69%;
+    left: 11%;
+}
+#life_board {
+    width: 26%;
+    position: absolute;
+    top: 83%;
+    left: 3%;
 }
