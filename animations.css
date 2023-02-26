@@ -1,4 +1,4 @@
-@keyframes fade_reappear {
+/* @keyframes fade_reappear {
   0% {
     opacity: 0;
   }
@@ -8,23 +8,25 @@
   100% {
     opacity: 0;
   }
-}
+} */
 
-.animation_food {
+/* .animation_food {
   animation-name: fade_reappear;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-play-state: running;
   animation-timing-function: linear;
-}
-
+} */
+/* 
 .hand_animation {
   animation-name: move_hand;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
-  /* animation-play-state: running; */
-  animation-timing-function: linear;
-}
+  /* animation-play-state: running; }*/
+
+
+
+/* 
 @keyframes move_hand {
   0% {
     transform: translate(0, 0);
@@ -32,4 +34,4 @@
   100% {
     transform: translate(100%, 0%);
   }
-}
+} */

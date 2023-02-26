@@ -1,214 +1,234 @@
-body{
-    margin: 0;
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+  overflow: hidden;
 }
 
-#screen{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
+h2 {
+  font-size: 4em;
+}
+
+#screen {
+  aspect-ratio: 16 / 9;
+
+  display: grid;
+  grid-template: 100% / 100%;
 }
 
 #game {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-}
-#start {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    /* background-image: url(); */
-}
+  grid-area: 1 / 1;
 
-#level_complete {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    /* background-image: url(); */
+  display: grid;
+  grid-template: 100% / 100%;
 }
 
 #game_background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    background-image: url("images/background(1).png");
-    background-size: 100% 100%;
+  grid-area: 1 /1;
+
+  /* position: absolute; */
+
+  background-image: url("images/backgroundFinal.png");
+  /* height: 100%;
+  width: 100%; */
+  /* need otherwise image wont fit */
+  background-size: 100% 100%;
 }
 
 #game_elements {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+  grid-area: 1 /1;
+  overflow: hidden;
+  position: relative;
 }
 
+#game_over {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+#level_complete {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.hidden,
+#game_over.hidden,
+#level_complete.hidden {
+  display: none;
+}
+
+/* positioning elements */
+
+#butter_container {
+  position: absolute;
+  width: 10vw;
+  top: 7vw;
+  left: 70vw;
+}
+
+#butter_sprite {
+  width: 100%;
+}
+
+#cabbage_container {
+  position: absolute;
+  width: 10vw;
+  top: 10vw;
+  left: 7vw;
+}
+
+#cabbage_sprite {
+  width: 100%;
+}
+
+#tomato_container {
+  position: absolute;
+  width: 10vw;
+  top: 10vw;
+  left: 16vw;
+}
+
+#tomato_sprite {
+  width: 100%;
+}
+
+#hand_container {
+  position: absolute;
+  width: 10vw;
+  top: 10vw;
+  left: 45vw;
+}
+
+#hand_sprite {
+  width: 100%;
+}
+
+/* UI */
 #game_ui {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    
+  position: absolute;
+  top: 2vw;
+  right: 1vw;
+  color: white;
+
+  font-size: 2em;
+
+  pointer-events: none;
 }
 
-/*--------- Game-elements------------ */
-#turkey_container{
-    width: 13%;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-}
-
-#turkey_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-#pie_container{
-    width: 13%;
-    position: absolute;
-    top: 25%;
-    left: 51%;
-}
-
-#pie_sprite{
-    width: 100%;
-    height: 100%;
-}
-#butter_container{
-    width: 5%;
-    position: absolute;
-    top: 25%;
-    left: 55%;
-    
-}
-
-#butter_sprite{
-    width: 100%;
-    height: 100%;
-    
-}
-
-#tomato_container{
-    width: 5%;
-    position: absolute;
-    top: 25%;
-    left: 57%;
-}
-
-#tomato_sprite{
-    width: 100%;
-    height: 100%;
-}
-#carrot_container{
-    width: 10%;
-    position: absolute;
-    top: 25%;
-    left: 56%;
-}
-
-#carrot_sprite{
-    width: 100%;
-    height: 100%;
-   
-}
-
-#cabbage_container{
-    width: 10%;
-    position: absolute;
-    top: 25%;
-    left: 56%;
-}
-#cabbage_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-#hand_container{
-    width: 40%;
-    height:100%;
-    position: absolute;
-    top: 20%;
-    left: -36%;
-    
-}
-
-#hand_sprite{
-    width: 100%;
-    height: 100%;
-    transform: rotate(90deg);
-}
-
-#slap_container{
-    width: 10%;
-    position: absolute;
-    top: -0%;
-    left: 56%;
-}
-
-#slap_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-#smileys_container{
-    width: 20%;
-    height: 20%;
-    position: absolute;
-    top: 50%;
-    left: 80%;
-}
-
-#smileys_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-#angry_container{
-    width: 20%;
-    height: 20%;
-    position: absolute;
-    top: 50%;
-    left: 70%;
-}
-
-#angry_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-
-
-
-
-
-/* ui-elementer */
-#time_board {
-    width: 5.6%;
-    position: absolute;
-    top: 66.5%;
-    left: 4%;
-}
 #score_board {
-    width: 23%;
-    position: absolute;
-    top: 69%;
-    left: 11%;
+  display: grid;
+  grid-template-columns: 2fr 0.2fr;
+ 
 }
+
+#point_count {
+  white-space: nowrap;
+  text-align: right;
+}
+
+#thigh_image {
+  width: 1em;
+  /* margin-top: -10%; */
+}
+
 #life_board {
-    width: 26%;
-    position: absolute;
-    top: 83%;
-    left: 3%;
+  margin-block-start: 0.2em;
+  margin-left: 50vw;
+
+  display: grid;
+  grid-template-columns: 1.2em 1.2em 1.2em;
+}
+
+#life_board img {
+  width: 100%;
+}
+
+.active_heart {
+  filter: drop-shadow(0 0 2px yellow);
+}
+
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
+}
+
+/* Animations */
+
+.falling {
+  animation-name: falling;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes falling {
+  0% {
+    transform: translate(0, -100%);
+  }
+
+  100% {
+    transform: translate(0, 56.25vw);
+  }
+}
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.zoom_in {
+  animation-name: zoom_in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_in {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    transform: translate(100%, 0) scale(15) rotate(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0) scale(15) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+.spiral {
+  animation-name: spiral;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 150%;
+}
+
+@keyframes spiral {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(720deg) scale(0);
+  }
+}
+
+.paused {
+  animation-play-state: paused;
 }
