@@ -148,11 +148,11 @@ h2 {
   width: 100%;
 }
 
-.active_heart {
+.happy_Smiley {
   filter: drop-shadow(0 0 2px yellow);
 }
 
-.broken_heart {
+.broken_Smiley {
   filter: grayscale(75%) blur(0.5px);
 }
 
