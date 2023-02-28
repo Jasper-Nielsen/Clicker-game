@@ -4,9 +4,10 @@ window.addEventListener("load", play);
 let points = 0;
 let lives = 0;
 
-function play(){
+function play() {
+  //play botton img that starts game
   document.querySelector("#start").classList.remove("hidden");
-  document.querySelector("#button_start").addEventListener("click",start);
+  document.querySelector("#button_start").addEventListener("click", start);
 }
 
 function start() {
@@ -18,8 +19,6 @@ function start() {
   animationStart();
   startPosition();
   listener();
-
-
 }
 
 function animationStart() {
@@ -102,16 +101,16 @@ function listener() {
 function clickButter() {
   let butter = this;
   // Forhindr gentagne clicks
-  this.removeEventListener("click", clickButter);
+  butter.removeEventListener("click", clickButter);
 
   // Stop coin container
-  this.classList.add("paused");
+  butter.classList.add("paused");
 
   // sæt forsvind-animation på coin
-  this.querySelector("img").classList.add("zoom_out");
+  butter.querySelector("img").classList.add("zoom_out");
 
   // når forsvind-animation er færdig: coinGone
-  this.addEventListener("animationend", butterGone);
+  butter.addEventListener("animationend", butterGone);
 
   // Giv point
   //   incrementPoints();
@@ -123,20 +122,20 @@ function butterGone() {
 
   // fjern event der bringer os herind
 
-  this.removeEventListener("animationend", butterGone);
+  butter.removeEventListener("animationend", butterGone);
 
   // fjern forsvind-animation
-  this.querySelector("img").classList.remove("zoom_out");
+  butter.querySelector("img").classList.remove("zoom_out");
 
   // fjern pause
-  this.classList.remove("paused");
+  butter.classList.remove("paused");
 
   // genstart falling animation
 
   butterRestart.call(this);
 
   // gør det muligt at klikke på coin igen
-  this.addEventListener("click", clickButter);
+  butter.addEventListener("click", clickButter);
 }
 
 function butterRestart() {
@@ -162,16 +161,16 @@ function butterRestart() {
 function clickCabbage() {
   let cabbage = this;
   // Forhindr gentagne clicks
-  this.removeEventListener("click", clickCabbage);
+  cabbage.removeEventListener("click", clickCabbage);
 
   // Stop cabbage container
-  this.classList.add("paused");
+  cabbage.classList.add("paused");
 
   // sæt forsvind-animation på cabbage
-  this.querySelector("img").classList.add("zoom_in");
+  cabbage.querySelector("img").classList.add("zoom_in");
 
   // når forsvind-animation er færdig: coinGone
-  this.addEventListener("animationend", cabbageGone);
+  cabbage.addEventListener("animationend", cabbageGone);
 
   decrementLives();
 }
@@ -179,35 +178,35 @@ function clickCabbage() {
 function cabbageGone() {
   let cabbage = this;
   // fjern event der bringer os herind
-  this.removeEventListener("animationend", cabbageGone);
+  cabbage.removeEventListener("animationend", cabbageGone);
 
   // fjern forsvind-animation
 
   //   overvej om du vil have animation
-  this.querySelector("img").classList.remove("zoom_in");
+  cabbage.querySelector("img").classList.remove("zoom_in");
 
   // fjern pause
-  this.classList.remove("paused");
+  cabbage.classList.remove("paused");
 
   // genstart falling animation
   butterRestart.call(this);
   // gør det muligt at klikke på bomb igen
-  this.addEventListener("click", clickCabbage);
+  cabbage.addEventListener("click", clickCabbage);
 }
 
 function clickHand() {
   let hand = this;
   // Forhindr gentagne clicks
-  this.removeEventListener("click", clickHand);
+  hand.removeEventListener("click", clickHand);
 
   // Stop heart container
-  this.classList.add("paused");
+  hand.classList.add("paused");
 
   // sæt forsvind-animation på heart
-  this.querySelector("img").classList.add("zoom_out");
+  hand.querySelector("img").classList.add("zoom_out");
 
   // når forsvind-animation er færdig: heatGone
-  this.addEventListener("animationend", handGone);
+  hand.addEventListener("animationend", handGone);
 
   incrementLives();
 }
@@ -215,19 +214,19 @@ function clickHand() {
 function handGone() {
   let hand = this;
   // fjern event der bringer os herind
-  this.removeEventListener("animationend", handGone);
+  hand.removeEventListener("animationend", handGone);
 
   // fjern forsvind-animation
-  this.querySelector("img").classList.remove("zoom_out");
+  hand.querySelector("img").classList.remove("zoom_out");
 
   // fjern pause
-  this.classList.remove("paused");
+  hand.classList.remove("paused");
 
   // genstart falling animation
   butterRestart.call(this);
 
   // gør det muligt at klikke på heart igen
-  this.addEventListener("click", clickHand);
+  hand.addEventListener("click", clickHand);
 
   incrementLives();
 }
@@ -235,16 +234,16 @@ function handGone() {
 function clickTomato() {
   let tomato = this;
 
-  this.removeEventListener("click", clickTomato);
+  tomato.removeEventListener("click", clickTomato);
 
   // Stop cabbage container
-  this.classList.add("paused");
+  tomato.classList.add("paused");
 
   // sæt forsvind-animation på cabbage
-  this.querySelector("img").classList.add("zoom_in");
+  tomato.querySelector("img").classList.add("zoom_in");
 
   // når forsvind-animation er færdig: tomatoGone
-  this.addEventListener("animationend", tomatoGone);
+  tomato.addEventListener("animationend", tomatoGone);
 
   //   decrementPoints();
   changePoints(0);
@@ -253,19 +252,19 @@ function clickTomato() {
 function tomatoGone() {
   let tomato = this;
   // fjern event der bringer os herind
-  this.removeEventListener("animationend", tomatoGone);
+  tomato.removeEventListener("animationend", tomatoGone);
 
   // fjern forsvind-animation
-  this.querySelector("img").classList.remove("zoom_in");
+  tomato.querySelector("img").classList.remove("zoom_in");
 
   // fjern pause
-  this.classList.remove("paused");
+  tomato.classList.remove("paused");
 
   // genstart falling animation
   butterRestart.call(this);
 
   // gør det muligt at klikke på tomatoigen
-  this.addEventListener("click", clickTomato);
+  tomato.addEventListener("click", clickTomato);
 }
 
 // function incrementPoints() {
@@ -295,6 +294,7 @@ function changePoints(x) {
 
   if (points >= 2) {
     levelComplete();
+    displayPoints();
   } else {
     displayPoints();
   }
@@ -327,7 +327,10 @@ function incrementLives() {
 
 function showDecrementedLives() {
   document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
+document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
+
   document.querySelector(`#life${lives}`).classList.add("broken_Smiley");
+ 
 }
 
 function showIncrementedLives() {
@@ -347,30 +350,38 @@ function levelComplete() {
 
 function stop() {
   // Stop animationer
-  document.querySelector("#butter_container").classList.remove("falling");
-  document.querySelector("#butter_container2").classList.remove("falling");
-  document.querySelector("#butter_container3").classList.remove("falling");
-  document.querySelector("#tomato_container").classList.remove("falling");
-  document.querySelector("#cabbage_container").classList.remove("falling");
-  document.querySelector("#hand_container").classList.remove("falling");
+  // document.querySelector("#butter_container").classList.remove("falling");
+  // document.querySelector("#butter_container2").classList.remove("falling");
+  // document.querySelector("#butter_container3").classList.remove("falling");
+  // document.querySelector("#tomato_container").classList.remove("falling");
+  // document.querySelector("#cabbage_container").classList.remove("falling");
+  // document.querySelector("#hand_container").classList.remove("falling");
 
   // Fjern click
-  document
-    .querySelector("#butter_container")
-    .removeEventListener("click", clickButter);
-  document
-    .querySelector("#butter_container2")
-    .removeEventListener("click", clickButter);
-  document
-    .querySelector("#butter_container3")
-    .removeEventListener("click", clickButter);
-  document
-    .querySelector("#tomato_container")
-    .removeEventListener("click", clickTomato);
-  document
-    .querySelector("#cabbage_container")
-    .removeEventListener("click", clickCabbage);
-  document
-    .querySelector("#hand_container")
-    .removeEventListener("click", clickHand);
+  // document
+  //   .querySelector("#butter_container")
+  //   .removeEventListener("click", clickButter);
+  // document
+  //   .querySelector("#butter_container2")
+  //   .removeEventListener("click", clickButter);
+  // document
+  //   .querySelector("#butter_container3")
+  //   .removeEventListener("click", clickButter);
+  // document
+  //   .querySelector("#tomato_container")
+  //   .removeEventListener("click", clickTomato);
+  // document
+  //   .querySelector("#cabbage_container")
+  //   .removeEventListener("click", clickCabbage);
+  // document
+  //   .querySelector("#hand_container")
+  //   .removeEventListener("click", clickHand);
+
+  //hide objects when game stops
+  document.querySelector("#butter_container").classList.add("hidden");
+  document.querySelector("#butter_container2").classList.add("hidden");
+  document.querySelector("#butter_container3").classList.add("hidden");
+  document.querySelector("#tomato_container").classList.add("hidden");
+  document.querySelector("#cabbage_container").classList.add("hidden");
+  document.querySelector("#hand_container").classList.add("hidden");
 }

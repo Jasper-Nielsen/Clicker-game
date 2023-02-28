@@ -104,7 +104,11 @@ h2 {
 .hidden,
 #game_over.hidden,
 #level_complete.hidden,
-#start.hidden {
+#start.hidden,
+#death1,
+#death2,
+#death3
+ {
   display: none;
 }
 
@@ -193,23 +197,26 @@ h2 {
 /* UI */
 #game_ui {
   position: absolute;
-  top: 2vw;
+  
   right: 1vw;
   color: white;
-
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
   font-size: 2em;
 
   pointer-events: none;
 }
 
 #score_board {
-  display: grid;
-  grid-template-columns: 2fr 0.2fr;
+  
+ display: grid;
+ grid-template-columns: 0.2fr auto;
 }
 
 #point_count {
   white-space: nowrap;
-  text-align: right;
+  
+  /* text-align: right; */
 }
 
 #thigh_image {
@@ -218,8 +225,8 @@ h2 {
 }
 
 #life_board {
-  margin-block-start: 0.2em;
-  margin-left: 50vw;
+  margin-block-start: 0em;
+  margin-left: 20vw;
 
   display: grid;
   grid-template-columns: 1.2em 1.2em 1.2em;
@@ -231,10 +238,14 @@ h2 {
 
 .happy_Smiley {
   filter: drop-shadow(0 0 2px yellow);
+  
+  
 }
 
 .broken_Smiley {
   filter: grayscale(75%) blur(0.5px);
+  /* filter: url("images/angry300.png"); */
+  
 }
 
 /* Animations */
