@@ -57,7 +57,9 @@ function clickButter() {
     .addEventListener("animationend", butterGone);
 
   // Giv point
-  incrementPoints();
+//   incrementPoints();
+changePoints(1);
+
 }
 
 function butterGone() {
@@ -101,6 +103,7 @@ function clickCabbage() {
     .addEventListener("animationend", cabbageGone);
 
   decrementLives();
+  
 }
 
 function cabbageGone() {
@@ -129,7 +132,7 @@ function cabbageGone() {
 }
 
 function clickHand() {
-  console.log("Click heart");
+  
   // Forhindr gentagne clicks
   document
     .querySelector("#hand_container")
@@ -190,7 +193,8 @@ function clickTomato() {
     .querySelector("#tomato_container")
     .addEventListener("animationend", tomatoGone);
 
-  decrementPoints();
+//   decrementPoints();
+  changePoints(0);
 }
 
 function tomatoGone() {
@@ -216,22 +220,33 @@ function tomatoGone() {
     .addEventListener("click", clickTomato);
 }
 
-function incrementPoints() {
-  points++;
+// function incrementPoints() {
+//   points++;
 
-  displayPoints();
-  if (points >= 10) {
-    levelComplete();
-  }
-}
+//   displayPoints();
+//   if (points >= 10) {
+//     levelComplete();
+//   }
+// }
 
-function decrementPoints() {
-  points--;
+// function decrementPoints() {
+//   points--;
 
-  displayPoints();
-  //   if (points >= 10) {
-  //     levelComplete();
-  //   }
+//   displayPoints();
+//   //   if (points >= 10) {
+//   //     levelComplete();
+//   //   }
+// }
+
+function changePoints(x){
+    if(x==1){
+        points++;
+    } else {points--;}
+    displayPoints();
+    
+    if (points >= 10) {
+      levelComplete();
+    }
 }
 
 function displayPoints() {
