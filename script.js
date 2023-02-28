@@ -4,6 +4,11 @@ window.addEventListener("load", start);
 let points = 0;
 let lives = 0;
 
+// function play(){
+//   document.querySelector("#butter_container").classList.remove("hidden");
+//   document.querySelector("#button_start").addEventListener("click",start);
+// }
+
 function start() {
   // nulstil point og liv
   points = 0;
@@ -12,6 +17,8 @@ function start() {
   animationStart();
   startPosition();
   listener();
+
+
 }
 
 function animationStart() {
