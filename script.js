@@ -18,6 +18,8 @@ function animationStart() {
   // Start animationer
   //   + 1point
   document.querySelector("#butter_container").classList.add("falling");
+  document.querySelector("#butter_container2").classList.add("falling");
+  document.querySelector("#butter_container3").classList.add("falling");
 
   //   -1 life
   document.querySelector("#cabbage_container").classList.add("falling");
@@ -34,20 +36,29 @@ function startPosition() {
 
   document.querySelector("#butter_container").classList.add("position1");
 
+  document.querySelector("#butter_container2").classList.add("position7");
+
+  document.querySelector("#butter_container3").classList.add("position5");
   //   -1 life
-  document.querySelector("#cabbage_container").classList.add("position2");
+  document.querySelector("#cabbage_container").classList.add("position4");
 
   //   -1point
-  document.querySelector("#tomato_container").classList.add("position3");
+  document.querySelector("#tomato_container").classList.add("position6");
 
   //   +1life
-  document.querySelector("#hand_container").classList.add("position4");
+  document.querySelector("#hand_container").classList.add("position8");
 }
 
 function listener() {
   // Registrer click
   document
     .querySelector("#butter_container")
+    .addEventListener("click", clickButter);
+  document
+    .querySelector("#butter_container2")
+    .addEventListener("click", clickButter);
+  document
+    .querySelector("#butter_container3")
     .addEventListener("click", clickButter);
   document
     .querySelector("#tomato_container")
@@ -64,6 +75,12 @@ function listener() {
     .querySelector("#butter_container")
     .addEventListener("animationiteration", butterRestart);
   document
+    .querySelector("#butter_container2")
+    .addEventListener("animationiteration", butterRestart);
+  document
+    .querySelector("#butter_container3")
+    .addEventListener("animationiteration", butterRestart);
+  document
     .querySelector("#tomato_container")
     .addEventListener("animationiteration", butterRestart);
   document
@@ -75,21 +92,18 @@ function listener() {
 }
 
 function clickButter() {
+  let butter = this;
   // Forhindr gentagne clicks
-  document
-    .querySelector("#butter_container")
-    .removeEventListener("click", clickButter);
+  this.removeEventListener("click", clickButter);
 
   // Stop coin container
-  document.querySelector("#butter_container").classList.add("paused");
+  this.classList.add("paused");
 
   // sæt forsvind-animation på coin
-  document.querySelector("#butter_sprite").classList.add("zoom_out");
+  this.querySelector("img").classList.add("zoom_out");
 
   // når forsvind-animation er færdig: coinGone
-  document
-    .querySelector("#butter_container")
-    .addEventListener("animationend", butterGone);
+  this.addEventListener("animationend", butterGone);
 
   // Giv point
   //   incrementPoints();
@@ -126,7 +140,10 @@ function butterRestart() {
     "position2",
     "position3",
     "position4",
-    "position5"
+    "position5",
+    "position6",
+    "position7",
+    "position8"
   );
 
   let pos = Math.floor(Math.random() * 5) + 1;

@@ -66,18 +66,34 @@ h2 {
 
 #butter_container {
   position: absolute;
-  width: 10vw;
-  
-  
+  width: 15vw;
 }
 
 #butter_sprite {
   width: 100%;
 }
 
+#butter_container2 {
+  position: absolute;
+  width: 15vw;
+}
+
+#butter_sprite2 {
+  width: 100%;
+}
+
+#butter_container3 {
+  position: absolute;
+  width: 15vw;
+}
+
+#butter_sprite3 {
+  width: 100%;
+}
+
 #cabbage_container {
   position: absolute;
-  width: 10vw;
+  width: 15vw;
   
   
 }
@@ -88,7 +104,7 @@ h2 {
 
 #tomato_container {
   position: absolute;
-  width: 10vw;
+ width: 15vw;
   
   
 }
@@ -99,31 +115,43 @@ h2 {
 
 #hand_container {
   position: absolute;
-  width: 10vw;
-  
-  
-}
-
-.position1{
-left: 70vw;
-}
-.position2{
-  left: 45vw;
-}
-
-.position3{
-  left: 16vw;
-}
-.position4{
-  left: 7vw;
-}
-.position5{
-  left: 30vw;
+  width: 15vw;
+   
 }
 
 #hand_sprite {
   width: 100%;
 }
+
+
+.position1{
+left: 10vw;
+}
+.position2{
+  left: 20vw;
+}
+
+.position3{
+  left: 30vw;
+}
+.position4{
+  left: 40vw;
+}
+.position5{
+  left: 50vw;
+}
+.position6{
+  left: 60vw;
+}
+.position7{
+  left: 70vw;
+}
+.position8{
+  left: 80vw;
+}
+
+
+
 
 /* UI */
 #game_ui {
