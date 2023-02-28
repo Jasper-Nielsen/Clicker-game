@@ -67,8 +67,8 @@ h2 {
 #butter_container {
   position: absolute;
   width: 10vw;
-  top: 7vw;
-  left: 70vw;
+  
+  
 }
 
 #butter_sprite {
@@ -78,8 +78,8 @@ h2 {
 #cabbage_container {
   position: absolute;
   width: 10vw;
-  top: 10vw;
-  left: 7vw;
+  
+  
 }
 
 #cabbage_sprite {
@@ -89,8 +89,8 @@ h2 {
 #tomato_container {
   position: absolute;
   width: 10vw;
-  top: 10vw;
-  left: 16vw;
+  
+  
 }
 
 #tomato_sprite {
@@ -100,8 +100,25 @@ h2 {
 #hand_container {
   position: absolute;
   width: 10vw;
-  top: 10vw;
+  
+  
+}
+
+.position1{
+left: 70vw;
+}
+.position2{
   left: 45vw;
+}
+
+.position3{
+  left: 16vw;
+}
+.position4{
+  left: 7vw;
+}
+.position5{
+  left: 30vw;
 }
 
 #hand_sprite {

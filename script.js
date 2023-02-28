@@ -5,12 +5,16 @@ let points = 0;
 let lives = 0;
 
 function start() {
-  //   console.log("JavaScript kører!");
-
   // nulstil point og liv
   points = 0;
   lives = 3;
 
+  animationStart();
+  startPosition();
+  listener();
+}
+
+function animationStart() {
   // Start animationer
   //   + 1point
   document.querySelector("#butter_container").classList.add("falling");
@@ -23,7 +27,24 @@ function start() {
 
   //   +1life
   document.querySelector("#hand_container").classList.add("falling");
+}
 
+function startPosition() {
+  //sets animation with start position via class adding
+
+  document.querySelector("#butter_container").classList.add("position1");
+
+  //   -1 life
+  document.querySelector("#cabbage_container").classList.add("position2");
+
+  //   -1point
+  document.querySelector("#tomato_container").classList.add("position3");
+
+  //   +1life
+  document.querySelector("#hand_container").classList.add("position4");
+}
+
+function listener() {
   // Registrer click
   document
     .querySelector("#butter_container")
@@ -37,6 +58,20 @@ function start() {
   document
     .querySelector("#hand_container")
     .addEventListener("click", clickHand);
+
+  //gives new position upon ended falling animation-iteration
+  document
+    .querySelector("#butter_container")
+    .addEventListener("animationiteration", butterRestart);
+  document
+    .querySelector("#tomato_container")
+    .addEventListener("animationiteration", butterRestart);
+  document
+    .querySelector("#cabbage_container")
+    .addEventListener("animationiteration", butterRestart);
+  document
+    .querySelector("#hand_container")
+    .addEventListener("animationiteration", butterRestart);
 }
 
 function clickButter() {
@@ -57,34 +92,46 @@ function clickButter() {
     .addEventListener("animationend", butterGone);
 
   // Giv point
-//   incrementPoints();
-changePoints(1);
-
+  //   incrementPoints();
+  changePoints(1);
 }
 
 function butterGone() {
+  let butter = this; //document.querySelector("#butter_container");
+
   // fjern event der bringer os herind
-  document
-    .querySelector("#butter_container")
-    .removeEventListener("animationend", butterGone);
+
+  this.removeEventListener("animationend", butterGone);
 
   // fjern forsvind-animation
-  document.querySelector("#butter_sprite").classList.remove("zoom_out");
+  this.querySelector("img").classList.remove("zoom_out");
 
   // fjern pause
-  document.querySelector("#butter_container").classList.remove("paused");
+  this.classList.remove("paused");
 
   // genstart falling animation
-  document.querySelector("#butter_container").classList.remove("falling");
-  document.querySelector("#butter_container").offsetWidth;
-  document.querySelector("#butter_container").classList.add("falling");
+  this.classList.remove("falling");
+  this.offsetWidth;
+  this.classList.add("falling");
+
+  butterRestart.call(this);
 
   // gør det muligt at klikke på coin igen
-  document
-    .querySelector("#butter_container")
-    .addEventListener("click", clickButter);
+  this.addEventListener("click", clickButter);
 }
 
+function butterRestart() {
+  this.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  let pos = Math.floor(Math.random() * 5) + 1;
+  this.classList.add("position" + pos);
+}
 function clickCabbage() {
   // Forhindr gentagne clicks
   document
@@ -103,7 +150,6 @@ function clickCabbage() {
     .addEventListener("animationend", cabbageGone);
 
   decrementLives();
-  
 }
 
 function cabbageGone() {
@@ -132,7 +178,6 @@ function cabbageGone() {
 }
 
 function clickHand() {
-  
   // Forhindr gentagne clicks
   document
     .querySelector("#hand_container")
@@ -174,7 +219,7 @@ function handGone() {
     .querySelector("#hand_container")
     .addEventListener("click", clickHand);
 
-    incrementLives();
+  incrementLives();
 }
 
 function clickTomato() {
@@ -193,7 +238,7 @@ function clickTomato() {
     .querySelector("#tomato_container")
     .addEventListener("animationend", tomatoGone);
 
-//   decrementPoints();
+  //   decrementPoints();
   changePoints(0);
 }
 
@@ -238,15 +283,17 @@ function tomatoGone() {
 //   //   }
 // }
 
-function changePoints(x){
-    if(x==1){
-        points++;
-    } else {points--;}
-    displayPoints();
-    
-    if (points >= 10) {
-      levelComplete();
-    }
+function changePoints(x) {
+  if (x == 1) {
+    points++;
+  } else {
+    points--;
+  }
+  displayPoints();
+
+  if (points >= 10) {
+    levelComplete();
+  }
 }
 
 function displayPoints() {
@@ -285,12 +332,37 @@ function showIncrementedLives() {
 }
 
 function gameOver() {
-  console.log("Game Over");
-
   document.querySelector("#game_over").classList.remove("hidden");
+  stop();
 }
 
 function levelComplete() {
-  console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  stop();
+}
+
+function stop() {
+  // Stop animationer
+  document.querySelector("#coin1_container").classList.remove("falling");
+  document.querySelector("#coin2_container").classList.remove("falling");
+  document.querySelector("#coin3_container").classList.remove("falling");
+  document.querySelector("#bomb_container").classList.remove("falling");
+  document.querySelector("#heart_container").classList.remove("falling");
+
+  // Fjern click
+  document
+    .querySelector("#coin1_container")
+    .removeEventListener("click", clickCoin);
+  document
+    .querySelector("#coin2_container")
+    .removeEventListener("click", clickCoin2);
+  document
+    .querySelector("#coin3_container")
+    .removeEventListener("click", clickCoin3);
+  document
+    .querySelector("#bomb_container")
+    .removeEventListener("click", clickBomb);
+  document
+    .querySelector("#heart_container")
+    .removeEventListener("click", clickHeart);
 }
