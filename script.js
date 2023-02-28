@@ -124,9 +124,6 @@ function butterGone() {
   this.classList.remove("paused");
 
   // genstart falling animation
-  this.classList.remove("falling");
-  this.offsetWidth;
-  this.classList.add("falling");
 
   butterRestart.call(this);
 
@@ -135,6 +132,10 @@ function butterGone() {
 }
 
 function butterRestart() {
+  this.classList.remove("falling");
+  this.offsetWidth;
+  this.classList.add("falling");
+
   this.classList.remove(
     "position1",
     "position2",
@@ -149,137 +150,114 @@ function butterRestart() {
   let pos = Math.floor(Math.random() * 5) + 1;
   this.classList.add("position" + pos);
 }
+
 function clickCabbage() {
+  let cabbage = this;
   // Forhindr gentagne clicks
-  document
-    .querySelector("#cabbage_container")
-    .removeEventListener("click", clickCabbage);
+  this.removeEventListener("click", clickCabbage);
 
   // Stop cabbage container
-  document.querySelector("#cabbage_container").classList.add("paused");
+  this.classList.add("paused");
 
   // sæt forsvind-animation på cabbage
-  document.querySelector("#cabbage_sprite").classList.add("zoom_in");
+  this.querySelector("img").classList.add("zoom_in");
 
   // når forsvind-animation er færdig: coinGone
-  document
-    .querySelector("#cabbage_container")
-    .addEventListener("animationend", cabbageGone);
+  this.addEventListener("animationend", cabbageGone);
 
   decrementLives();
 }
 
 function cabbageGone() {
+  let cabbage = this;
   // fjern event der bringer os herind
-  document
-    .querySelector("#cabbage_container")
-    .removeEventListener("animationend", cabbageGone);
+  this.removeEventListener("animationend", cabbageGone);
 
   // fjern forsvind-animation
 
   //   overvej om du vil have animation
-  document.querySelector("#cabbage_sprite").classList.remove("zoom_in");
+  this.querySelector("img").classList.remove("zoom_in");
 
   // fjern pause
-  document.querySelector("#cabbage_container").classList.remove("paused");
+  this.classList.remove("paused");
 
   // genstart falling animation
-  document.querySelector("#cabbage_container").classList.remove("falling");
-  document.querySelector("#cabbage_container").offsetWidth;
-  document.querySelector("#cabbage_container").classList.add("falling");
-
+  butterRestart.call(this);
   // gør det muligt at klikke på bomb igen
-  document
-    .querySelector("#cabbage_container")
-    .addEventListener("click", clickCabbage);
+  this.addEventListener("click", clickCabbage);
 }
 
 function clickHand() {
+  let hand = this;
   // Forhindr gentagne clicks
-  document
-    .querySelector("#hand_container")
-    .removeEventListener("click", clickHand);
+  this.removeEventListener("click", clickHand);
 
   // Stop heart container
-  document.querySelector("#hand_container").classList.add("paused");
+  this.classList.add("paused");
 
   // sæt forsvind-animation på heart
-  document.querySelector("#hand_sprite").classList.add("zoom_out");
+  this.querySelector("img").classList.add("zoom_out");
 
   // når forsvind-animation er færdig: heatGone
-  document
-    .querySelector("#hand_container")
-    .addEventListener("animationend", handGone);
+  this.addEventListener("animationend", handGone);
 
   incrementLives();
 }
 
 function handGone() {
+  let hand = this;
   // fjern event der bringer os herind
-  document
-    .querySelector("#hand_container")
-    .removeEventListener("animationend", handGone);
+  this.removeEventListener("animationend", handGone);
 
   // fjern forsvind-animation
-  document.querySelector("#hand_sprite").classList.remove("zoom_out");
+  this.querySelector("img").classList.remove("zoom_out");
 
   // fjern pause
-  document.querySelector("#hand_container").classList.remove("paused");
+  this.classList.remove("paused");
 
   // genstart falling animation
-  document.querySelector("#hand_container").classList.remove("falling");
-  document.querySelector("#hand_container").offsetWidth;
-  document.querySelector("#hand_container").classList.add("falling");
+  butterRestart.call(this);
 
   // gør det muligt at klikke på heart igen
-  document
-    .querySelector("#hand_container")
-    .addEventListener("click", clickHand);
+  this.addEventListener("click", clickHand);
 
   incrementLives();
 }
 
 function clickTomato() {
-  document
-    .querySelector("#tomato_container")
-    .removeEventListener("click", clickTomato);
+  let tomato = this;
+
+  this.removeEventListener("click", clickTomato);
 
   // Stop cabbage container
-  document.querySelector("#tomato_container").classList.add("paused");
+  this.classList.add("paused");
 
   // sæt forsvind-animation på cabbage
-  document.querySelector("#tomato_sprite").classList.add("zoom_in");
+  this.querySelector("img").classList.add("zoom_in");
 
   // når forsvind-animation er færdig: tomatoGone
-  document
-    .querySelector("#tomato_container")
-    .addEventListener("animationend", tomatoGone);
+  this.addEventListener("animationend", tomatoGone);
 
   //   decrementPoints();
   changePoints(0);
 }
 
 function tomatoGone() {
+  let tomato = this;
   // fjern event der bringer os herind
-  document
-    .querySelector("#tomato_container")
-    .removeEventListener("animationend", tomatoGone);
+  this.removeEventListener("animationend", tomatoGone);
 
   // fjern forsvind-animation
-  document.querySelector("#tomato_sprite").classList.remove("zoom_in");
+  this.querySelector("img").classList.remove("zoom_in");
 
   // fjern pause
-  document.querySelector("#tomato_container").classList.remove("paused");
+  this.classList.remove("paused");
 
   // genstart falling animation
-  document.querySelector("#tomato_container").classList.remove("falling");
-  document.querySelector("#tomato_container").offsetWidth;
-  document.querySelector("#tomato_container").classList.add("falling");
+  butterRestart.call(this);
 
   // gør det muligt at klikke på tomatoigen
-  document
-    .querySelector("#tomato_container")
-    .addEventListener("click", clickTomato);
+  this.addEventListener("click", clickTomato);
 }
 
 // function incrementPoints() {
@@ -306,10 +284,11 @@ function changePoints(x) {
   } else {
     points--;
   }
-  displayPoints();
 
-  if (points >= 10) {
+  if (points >= 2) {
     levelComplete();
+  } else {
+    displayPoints();
   }
 }
 
@@ -360,26 +339,30 @@ function levelComplete() {
 
 function stop() {
   // Stop animationer
-  document.querySelector("#coin1_container").classList.remove("falling");
-  document.querySelector("#coin2_container").classList.remove("falling");
-  document.querySelector("#coin3_container").classList.remove("falling");
-  document.querySelector("#bomb_container").classList.remove("falling");
-  document.querySelector("#heart_container").classList.remove("falling");
+  document.querySelector("#butter_container").classList.remove("falling");
+  document.querySelector("#butter_container2").classList.remove("falling");
+  document.querySelector("#butter_container3").classList.remove("falling");
+  document.querySelector("#tomato_container").classList.remove("falling");
+  document.querySelector("#cabbage_container").classList.remove("falling");
+  document.querySelector("#hand_container").classList.remove("falling");
 
   // Fjern click
   document
-    .querySelector("#coin1_container")
-    .removeEventListener("click", clickCoin);
+    .querySelector("#butter_container")
+    .removeEventListener("click", clickButter);
   document
-    .querySelector("#coin2_container")
-    .removeEventListener("click", clickCoin2);
+    .querySelector("#butter_container2")
+    .removeEventListener("click", clickButter);
   document
-    .querySelector("#coin3_container")
-    .removeEventListener("click", clickCoin3);
+    .querySelector("#butter_container3")
+    .removeEventListener("click", clickButter);
   document
-    .querySelector("#bomb_container")
-    .removeEventListener("click", clickBomb);
+    .querySelector("#tomato_container")
+    .removeEventListener("click", clickTomato);
   document
-    .querySelector("#heart_container")
-    .removeEventListener("click", clickHeart);
+    .querySelector("#cabbage_container")
+    .removeEventListener("click", clickCabbage);
+  document
+    .querySelector("#hand_container")
+    .removeEventListener("click", clickHand);
 }

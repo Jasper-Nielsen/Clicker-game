@@ -44,16 +44,32 @@ h2 {
   grid-area: 1 /1;
   z-index: 999;
   display: grid;
-  justify-content: center;
+
   align-content: center;
+  background-image: url(images/Window2.png);
+  background-size: 100% 100%;
+}
+
+#text_game_over {
+  margin-left: 10%;
+  width: 80%;
+  height: 100%;
 }
 
 #level_complete {
   grid-area: 1 /1;
   z-index: 999;
   display: grid;
-  justify-content: center;
+
   align-content: center;
+  background-image: url(images/Window2.png);
+  background-size: 100% 100%;
+}
+
+#text_level_complete {
+  margin-left: 10%;
+  width: 80%;
+  height: 100%;
 }
 
 .hidden,
@@ -94,8 +110,6 @@ h2 {
 #cabbage_container {
   position: absolute;
   width: 15vw;
-  
-  
 }
 
 #cabbage_sprite {
@@ -104,9 +118,7 @@ h2 {
 
 #tomato_container {
   position: absolute;
- width: 15vw;
-  
-  
+  width: 15vw;
 }
 
 #tomato_sprite {
@@ -116,42 +128,37 @@ h2 {
 #hand_container {
   position: absolute;
   width: 15vw;
-   
 }
 
 #hand_sprite {
   width: 100%;
 }
 
-
-.position1{
-left: 10vw;
+.position1 {
+  left: 10vw;
 }
-.position2{
+.position2 {
   left: 20vw;
 }
 
-.position3{
+.position3 {
   left: 30vw;
 }
-.position4{
+.position4 {
   left: 40vw;
 }
-.position5{
+.position5 {
   left: 50vw;
 }
-.position6{
+.position6 {
   left: 60vw;
 }
-.position7{
+.position7 {
   left: 70vw;
 }
-.position8{
+.position8 {
   left: 80vw;
 }
-
-
-
 
 /* UI */
 #game_ui {
@@ -168,7 +175,6 @@ left: 10vw;
 #score_board {
   display: grid;
   grid-template-columns: 2fr 0.2fr;
- 
 }
 
 #point_count {
