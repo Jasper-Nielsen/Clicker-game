@@ -40,6 +40,33 @@ h2 {
   position: relative;
 }
 
+#start {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+
+  align-content: center;
+  background-image: url(images/Window2.png);
+  background-size: 100% 100%;
+}
+
+#start_container {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+#text_start {
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: -5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#button_start {
+  width: 20%;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
 #game_over {
   grid-area: 1 /1;
   z-index: 999;
@@ -51,7 +78,8 @@ h2 {
 }
 
 #text_game_over {
-  margin-left: 10%;
+  margin-left: auto;
+  margin-right: auto;
   width: 80%;
   height: 100%;
 }
@@ -67,7 +95,8 @@ h2 {
 }
 
 #text_level_complete {
-  margin-left: 10%;
+  margin-left: auto;
+  margin-right: auto;
   width: 80%;
   height: 100%;
 }
