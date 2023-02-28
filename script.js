@@ -1,15 +1,16 @@
 "use strict";
-window.addEventListener("load", start);
+window.addEventListener("load", play);
 
 let points = 0;
 let lives = 0;
 
-// function play(){
-//   document.querySelector("#butter_container").classList.remove("hidden");
-//   document.querySelector("#button_start").addEventListener("click",start);
-// }
+function play(){
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#button_start").addEventListener("click",start);
+}
 
 function start() {
+  document.querySelector("#start").classList.add("hidden");
   // nulstil point og liv
   points = 0;
   lives = 3;
