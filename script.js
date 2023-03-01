@@ -8,16 +8,36 @@ function play() {
   //play botton img that starts game
   // document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#button_start").addEventListener("click", start);
+
+  document.querySelector("#story_button").addEventListener("click", story);
   document
-    .querySelector("#button_start")
+    .querySelector("#instructions_button")
     .addEventListener("click", instructions);
+  // hides story so we can return to play screen
+  document.querySelector("#story").classList.add("hidden");
+  // hides instructions so we can return to play screen
+  document.querySelector("#instructions").classList.add("hidden");
 }
 
-function instructions() {}
+function instructions(){
+  console.log("instruction clicked")
+  document.querySelector("#instructions").classList.remove("hidden");
+  document.querySelector("#back_button2").addEventListener("click", play);
+}
+
+
+function story() {
+  console.log("story pushed")
+  // document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#story").classList.remove("hidden");
+  document.querySelector("#back_button").addEventListener("click", play);
+}
+
 function start() {
   //plays background music when pushing on start button
 
   document.querySelector("#sound_background_music").play();
+  //removes start screen
   document.querySelector("#start").classList.add("hidden");
   // nulstil point og liv
   points = 0;

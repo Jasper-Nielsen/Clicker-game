@@ -67,6 +67,79 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
+
+#story{
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+
+  align-content: center;
+  background-image: url(images/Window2.png);
+  background-size: 100% 100%;
+}
+
+#story_header{
+  margin-top: 10%;
+  margin-bottom:  0%;
+  text-align: center;
+}
+
+#story_container{
+display: grid;
+  grid-template-rows: auto auto;
+ 
+  margin-left: 10%;
+ margin-right: 10%;
+  overflow-y: scroll;
+  
+  
+}
+
+#story_text{
+  /* font-size: 12; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#instructions{
+   grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+
+  /* align-content: center; */
+   text-align: center;
+  background-image: url(images/Window2.png);
+  background-size: 100% 100%;
+}
+
+#instructions_header{
+  
+  margin-bottom:  0%;
+ 
+}
+
+#instructions_container{
+display: grid;
+  grid-template-rows: auto auto;
+ 
+  margin-left: 10%;
+ margin-right: 10%;
+  overflow-y: scroll;
+  margin-top: 3%;
+  
+  
+}
+
+#instructions_text{
+  /* font-size: 12; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+#story_button, #instructions_button{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
 #game_over {
   grid-area: 1 /1;
   z-index: 999;
@@ -105,9 +178,11 @@ h2 {
 #game_over.hidden,
 #level_complete.hidden,
 #start.hidden,
-#death1,
+/* #death1,
 #death2,
-#death3
+#death3, */
+#story.hidden,
+#instructions.hidden
  {
   display: none;
 }
