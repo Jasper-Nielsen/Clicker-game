@@ -58,7 +58,6 @@
 
         <div id="game_ui">
           <div id="score_board">
-            
             <img id="thigh_image" src="images/thigh300.png" />
             <span id="point_count">0</span>
           </div>
@@ -69,23 +68,37 @@
             <img id="life1" src="images/smiley300.png" class="happy_Smiley" />
             <img id="life2" src="images/smiley300.png" class="happy_Smiley" />
             <img id="life3" src="images/smiley300.png" class="happy_Smiley" />
-            
-            
-            <img id="lose1" src="images/angry300.png" class="angry_Smiley hidden" />
-            <img id="lose2" src="images/angry300.png" class="angry_Smiley hidden" />
-            <img id="lose3" src="images/angry300.png" class="angry_Smiley hidden" />
 
-
+            <img
+              id="lose1"
+              src="images/angry300.png"
+              class="angry_Smiley hidden"
+            />
+            <img
+              id="lose2"
+              src="images/angry300.png"
+              class="angry_Smiley hidden"
+            />
+            <img
+              id="lose3"
+              src="images/angry300.png"
+              class="angry_Smiley hidden"
+            />
           </div>
-
-          
         </div>
       </div>
 
-      <div id="start" >
+      <div id="start">
         <div id="start_container">
-          <div id="text_start">Start</div>
+          <div id="text_start">Click button to start</div>
           <img id="button_start" src="images/BTN_Red_01.png" />
+        </div>
+      </div>
+
+      <div id="instructions">
+        <div id="instructins_container">
+          <p id="introductions_text"></p>
+          <button type="button">Back</button>
         </div>
       </div>
 
@@ -97,6 +110,18 @@
         <img id="text_level_complete" src="images/levelcomplete.png" />
       </div>
     </div>
+
+    <audio
+      id="sound_cabbage"
+      src="sounds/panic-stricken-screaming-1-6880.mp3"
+    ></audio>
+    <audio id="sound_tomato" src="sounds/gagging-1-107061.mp3"></audio>
+    <audio id="sound_hand_slap" src="sounds/karate-chop-6357.mp3"></audio>
+    <audio id="sound_butter" src="sounds/iii-like-it2-38691.mp3"></audio>
+    <audio
+      id="sound_background_music"
+      src="sounds/paris-christmas-street-ambience-harpist-people-cars-63304.mp3"
+    ></audio>
     <script src="script.js"></script>
   </body>
 </html>

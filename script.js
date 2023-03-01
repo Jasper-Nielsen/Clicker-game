@@ -6,11 +6,18 @@ let lives = 0;
 
 function play() {
   //play botton img that starts game
-  document.querySelector("#start").classList.remove("hidden");
+  // document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#button_start").addEventListener("click", start);
+  document
+    .querySelector("#button_start")
+    .addEventListener("click", instructions);
 }
 
+function instructions() {}
 function start() {
+  //plays background music when pushing on start button
+
+  document.querySelector("#sound_background_music").play();
   document.querySelector("#start").classList.add("hidden");
   // nulstil point og liv
   points = 0;
@@ -115,6 +122,9 @@ function clickButter() {
   // Giv point
   //   incrementPoints();
   changePoints(1);
+
+  document.querySelector("#sound_butter").currentTime = 0;
+  document.querySelector("#sound_butter").play();
 }
 
 function butterGone() {
@@ -172,6 +182,8 @@ function clickCabbage() {
   // når forsvind-animation er færdig: coinGone
   cabbage.addEventListener("animationend", cabbageGone);
 
+  document.querySelector("#sound_cabbage").currentTime = 0;
+  document.querySelector("#sound_cabbage").play();
   decrementLives();
 }
 
@@ -208,6 +220,8 @@ function clickHand() {
   // når forsvind-animation er færdig: heatGone
   hand.addEventListener("animationend", handGone);
 
+  document.querySelector("#sound_hand_slap").currentTime = 0;
+  document.querySelector("#sound_hand_slap").play();
   incrementLives();
 }
 
@@ -245,6 +259,8 @@ function clickTomato() {
   // når forsvind-animation er færdig: tomatoGone
   tomato.addEventListener("animationend", tomatoGone);
 
+  document.querySelector("#sound_tomato").currentTime = 0;
+  document.querySelector("#sound_tomato").play();
   //   decrementPoints();
   changePoints(0);
 }
@@ -306,7 +322,7 @@ function displayPoints() {
 }
 
 function decrementLives() {
-  if (lives <= 0) {
+  if (lives <= 1) {
     gameOver();
   } else {
     showDecrementedLives();
@@ -327,10 +343,9 @@ function incrementLives() {
 
 function showDecrementedLives() {
   document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
-document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
+  document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
 
   document.querySelector(`#life${lives}`).classList.add("broken_Smiley");
- 
 }
 
 function showIncrementedLives() {
@@ -376,6 +391,9 @@ function stop() {
   // document
   //   .querySelector("#hand_container")
   //   .removeEventListener("click", clickHand);
+
+  //pauses background music
+  document.querySelector("#sound_background_music").pause();
 
   //hide objects when game stops
   document.querySelector("#butter_container").classList.add("hidden");
