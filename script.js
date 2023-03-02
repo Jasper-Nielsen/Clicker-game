@@ -274,8 +274,9 @@ function clickCabbage() {
   // når forsvind-animation er færdig: coinGone
   cabbage.addEventListener("animationend", cabbageGone);
 
-  document.querySelector("#sound_cabbage").currentTime = 0;
   document.querySelector("#sound_cabbage").play();
+  document.querySelector("#sound_cabbage").currentTime = 0;
+
   decrementLives();
 }
 
@@ -425,7 +426,7 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
 
   document.querySelector("#sound_game_over").play();
-  document.querySelector("#sound_game_over").currentTime = 3;
+  document.querySelector("#sound_game_over").currentTime = 5;
   stop();
 }
 
@@ -433,8 +434,10 @@ function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
 
   document.querySelector("#sound_level_complete").play();
-  document.querySelector("#sound_level_complete").currentTime = 3;
+  document.querySelector("#sound_level_complete").currentTime = 5;
   stop();
+
+  document.querySelector("#level_complete_points").textContent = points;
 }
 
 function stop() {

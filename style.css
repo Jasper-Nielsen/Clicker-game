@@ -135,6 +135,19 @@ h2 {
   width: 30%;
 }
 
+/* bakc button in story */
+#back_button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+/* back button in instructions */
+#back_button2 {
+  margin-left: auto;
+  margin-right: auto;
+  height: 30%;
+  width: 30%;
+}
 #replay_button,
 #replay_button2 {
   margin-top: 5vw;
@@ -169,11 +182,17 @@ h2 {
   background-size: 100% 100%;
 }
 
+/* img text at level complete */
 #text_level_complete {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
   height: 100%;
+}
+/* upon level complete message */
+#message {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hidden,
