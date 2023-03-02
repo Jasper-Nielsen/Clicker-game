@@ -5,27 +5,37 @@ let points = 0;
 let lives = 0;
 
 function lobby() {
-  points = 0;
-  lives = 3;
-
   //starts game
   document.querySelector("#button_start").addEventListener("click", start);
 
   //opens story
   document.querySelector("#story_button").addEventListener("click", story);
 
-  //c opens instructions
+  // opens instructions
   document
     .querySelector("#instructions_button")
     .addEventListener("click", instructions);
 
-  //closes down instructions page
+  //replay from gameOver
+  document.querySelector("#replay_button").addEventListener("click", lobby);
+
+  //replay from level complete
+  document.querySelector("#replay_button2").addEventListener("click", lobby);
+
+  //hides instructions - return to lobby
   document.querySelector("#instructions").classList.add("hidden");
 
-  // hides instructions so we can return to play screen
+  //go to lobby/startscreen
+  document.querySelector("#back_button2").addEventListener("click", lobby);
+
+  //go back to lobby
+  document.querySelector("#back_button").addEventListener("click", lobby);
+
+  // hides story - return to play screen
   document.querySelector("#story").classList.add("hidden");
 
   showStartScreen();
+
   //resets timer and starts it
   startTimer();
 
@@ -43,17 +53,11 @@ function showStartScreen() {
 function instructions() {
   //go to instructions
   document.querySelector("#instructions").classList.remove("hidden");
-  //go to lobby/startscreen
-  document.querySelector("#back_button2").addEventListener("click", lobby);
 }
 
 function story() {
-  console.log("story pushed");
-
-  //go to story
+  //shows story
   document.querySelector("#story").classList.remove("hidden");
-  //go back to lobby
-  document.querySelector("#back_button").addEventListener("click", lobby);
 }
 
 function start() {
@@ -419,16 +423,14 @@ function showIncrementedLives() {
 
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
-  document.querySelector("#replay_button").addEventListener("click", lobby);
+
   document.querySelector("#sound_game_over").play();
   document.querySelector("#sound_game_over").currentTime = 3;
-
   stop();
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#replay_button2").addEventListener("click", lobby);
 
   document.querySelector("#sound_level_complete").play();
   document.querySelector("#sound_level_complete").currentTime = 3;
@@ -441,6 +443,5 @@ function stop() {
 
   //pauses background music
   document.querySelector("#sound_background_music").pause();
-
-  
+  document.querySelector("#sound_background_music").currentTime = 0;
 }
