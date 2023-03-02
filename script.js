@@ -12,6 +12,7 @@ function lobby() {
   //enbales to start game on click
   document.querySelector("#button_start").addEventListener("click", start);
 
+  //click on storyButton opens story
   document.querySelector("#story_button").addEventListener("click", story);
 
   //click on instructions opens instructions
@@ -26,9 +27,10 @@ function lobby() {
 }
 //makes possible restart
 function showStartScreen() {
-  document.querySelector("#start").classList.remove("hidden");
+  // document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#game").classList.remove("hidden");
 
   //make the objects clickable again
   // document.querySelector("#butter_container").classList.remove("hidden");
@@ -59,10 +61,7 @@ function start() {
   //plays background music
   document.querySelector("#sound_background_music").play();
 
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
-
-  document.querySelector("#game").classList.remove("hidden");
+  showStartScreen();
 
   //removes start screen
   document.querySelector("#start").classList.add("hidden");
