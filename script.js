@@ -1,36 +1,49 @@
 "use strict";
-window.addEventListener("load", play);
+window.addEventListener("load", lobby);
 
 let points = 0;
 let lives = 0;
 
-function play() {
+function lobby() {
   //play botton img that starts game
   // document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#button_start").addEventListener("click", start);
 
   document.querySelector("#story_button").addEventListener("click", story);
+
   document
     .querySelector("#instructions_button")
     .addEventListener("click", instructions);
-  // hides story so we can return to play screen
+  // hides instructions so we can return to play screen
   document.querySelector("#story").classList.add("hidden");
   // hides instructions so we can return to play screen
   document.querySelector("#instructions").classList.add("hidden");
 }
 
-function instructions(){
-  console.log("instruction clicked")
+function showStartScreen() {
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+
+  //make the objects clickable again
+  document.querySelector("#butter_container").classList.remove("hidden");
+  document.querySelector("#butter_container2").classList.remove("hidden");
+  document.querySelector("#butter_container3").classList.remove("hidden");
+  document.querySelector("#tomato_container").classList.remove("hidden");
+  document.querySelector("#cabbage_container").classList.remove("hidden");
+  document.querySelector("#hand_container").classList.remove("hidden");
+}
+function instructions() {
+  console.log("instruction clicked");
   document.querySelector("#instructions").classList.remove("hidden");
-  document.querySelector("#back_button2").addEventListener("click", play);
+  document.querySelector("#back_button2").addEventListener("click", lobby);
 }
 
-
 function story() {
-  console.log("story pushed")
+  console.log("story pushed");
   // document.querySelector("#start").classList.add("hidden");
   document.querySelector("#story").classList.remove("hidden");
-  document.querySelector("#back_button").addEventListener("click", play);
+  document.querySelector("#back_button").addEventListener("click", lobby);
 }
 
 function start() {
@@ -143,6 +156,7 @@ function clickButter() {
   //   incrementPoints();
   changePoints(1);
 
+  //music currentTime=0 enables to finish sound before clicking on next object
   document.querySelector("#sound_butter").currentTime = 0;
   document.querySelector("#sound_butter").play();
 }
@@ -179,12 +193,10 @@ function butterRestart() {
     "position3",
     "position4",
     "position5",
-    "position6",
-    "position7",
-    "position8"
+    "position6"
   );
 
-  let pos = Math.floor(Math.random() * 5) + 1;
+  let pos = Math.floor(Math.random() * 6) + 1;
   this.classList.add("position" + pos);
 }
 
@@ -328,7 +340,7 @@ function changePoints(x) {
     points--;
   }
 
-  if (points >= 2) {
+  if (points >= 10) {
     levelComplete();
     displayPoints();
   } else {
@@ -375,11 +387,17 @@ function showIncrementedLives() {
 
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
+  document
+    .querySelector("#replay_button")
+    .addEventListener("click", showStartScreen);
   stop();
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
+  document
+    .querySelector("#replay_button2")
+    .addEventListener("click", showStartScreen);
   stop();
 }
 

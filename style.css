@@ -246,28 +246,38 @@ display: grid;
 .position1 {
   left: 10vw;
 }
+/* .position2 {
+  left: 20vw;
+} */
+
 .position2 {
   left: 20vw;
 }
-
+/* .position4 {
+  left: 40vw;
+} */
 .position3 {
-  left: 30vw;
-}
-.position4 {
   left: 40vw;
 }
-.position5 {
-  left: 50vw;
-}
-.position6 {
+/* .position6 {
+  left: 60vw;
+} */
+.position4 {
   left: 60vw;
 }
-.position7 {
-  left: 70vw;
-}
-.position8 {
+
+.position5 {
   left: 80vw;
 }
+
+.position6 {
+  left: 90vw;
+}
+
+
+/* .position8 {
+  left: 80vw;
+} */
 
 /* UI */
 #game_ui {
