@@ -5,6 +5,8 @@ let points = 0;
 let lives = 0;
 
 function lobby() {
+  points = 0;
+  lives = 3;
   //play botton img that starts game
   // document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#button_start").addEventListener("click", start);
@@ -53,14 +55,59 @@ function start() {
   //removes start screen
   document.querySelector("#start").classList.add("hidden");
   // nulstil point og liv
-  points = 0;
-  lives = 3;
+  
 
   animationStart();
   startPosition();
   listener();
+  startTimer();
+  reset();
 }
 
+function reset(){
+
+
+resetPoints();
+resetLives();
+
+}
+
+function resetPoints(){
+  points = 0;
+  displayPoints();
+}
+function resetLives(){
+  lives = 3;
+  document.querySelector("#life1").classList.remove("broken_Smiley");
+  document.querySelector("#life2").classList.remove("broken_Smiley");
+  document.querySelector("#life3").classList.remove("broken_Smiley");
+
+  document.querySelector("#life1").classList.add("happy_Smiley");
+  document.querySelector("#life2").classList.add("happy_Smiley");
+  document.querySelector("#life3").classList.add("happy_Smiley");
+
+
+}
+
+function startTimer() {
+  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
+  document.querySelector("#time_sprite").classList.add("shrink");
+
+  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  document
+    .querySelector("#time_sprite")
+    .addEventListener("animationend", timeIsUp);
+}
+
+function timeIsUp() {
+  console.log("Tiden er gået!");
+
+  if (points >= 10) {
+    levelComplete();
+  } else {
+    gameOver();
+  }
+}
 function animationStart() {
   // Start animationer
   //   + 1point
@@ -340,9 +387,9 @@ function changePoints(x) {
     points--;
   }
 
-  if (points >= 10) {
+  if (points >= 4) {
     levelComplete();
-    displayPoints();
+    
   } else {
     displayPoints();
   }

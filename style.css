@@ -301,6 +301,30 @@ display: grid;
   pointer-events: none;
 }
 
+/* Timer */
+#time_board {
+    position: relative;
+}
+
+#time_container {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 30/6;
+    border: 2px solid black;
+    background-color: rgba(208, 204, 204, 0.383);
+    top: 1.6vh;
+    right: 0.2vw;
+}
+
+#time_sprite {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: limegreen;
+    transform-origin: right;
+}
+
+
 #score_board {
   
  display: grid;
@@ -417,4 +441,28 @@ display: grid;
 
 .paused {
   animation-play-state: paused;
+}
+
+/* ------------ TIMER ANIMATIONER ------------ */
+
+.shrink {
+    animation-name: shrink_kf;
+    animation-duration: 15s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+    0% {
+        scale: 1 1;
+        background-color: limegreen;
+    }
+    50% {
+        background-color: rgb(255, 230, 0);
+    }
+    100% {
+        scale: 0 1;
+        background-color: red;
+    }
 }
