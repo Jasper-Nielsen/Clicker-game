@@ -41,19 +41,23 @@ function showStartScreen() {
   document.querySelector("#start").classList.remove("hidden");
 }
 function instructions() {
-  console.log("instruction clicked");
+  //go to instructions
   document.querySelector("#instructions").classList.remove("hidden");
+  //go to lobby/startscreen
   document.querySelector("#back_button2").addEventListener("click", lobby);
 }
 
 function story() {
   console.log("story pushed");
-  // document.querySelector("#start").classList.add("hidden");
+
+  //go to story
   document.querySelector("#story").classList.remove("hidden");
+  //go back to lobby
   document.querySelector("#back_button").addEventListener("click", lobby);
 }
 
 function start() {
+  document.querySelector("#game").classList.remove("hidden");
   //stops sound effect from end screens
   document.querySelector("#sound_game_over").pause();
   document.querySelector("#sound_level_complete").pause();
@@ -343,8 +347,8 @@ function clickTomato() {
   // når forsvind-animation er færdig: tomatoGone
   tomato.addEventListener("animationend", tomatoGone);
 
-  document.querySelector("#sound_tomato").currentTime = 0;
   document.querySelector("#sound_tomato").play();
+  document.querySelector("#sound_tomato").currentTime = 0;
   //   decrementPoints();
   changePoints(0);
 }
@@ -424,6 +428,7 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#replay_button").addEventListener("click", lobby);
   document.querySelector("#sound_game_over").play();
+  document.querySelector("#sound_game_over").currentTime = 3;
 
   stop();
 }
@@ -433,16 +438,19 @@ function levelComplete() {
   document.querySelector("#replay_button2").addEventListener("click", lobby);
 
   document.querySelector("#sound_level_complete").play();
+  document.querySelector("#sound_level_complete").currentTime = 3;
   stop();
 }
 
 function stop() {
-  
   //hides game thereby making it unclickable
   document.querySelector("#game").classList.add("hidden");
+
   //pauses background music
   document.querySelector("#sound_background_music").pause();
 
-
-  
+  document.querySelector("#sound_butter").pause();
+  document.querySelector("#sound_cabbage").pause();
+  document.querySelector("#sound_hand_slap").pause();
+  document.querySelector("#sound_tomato").pause();
 }
