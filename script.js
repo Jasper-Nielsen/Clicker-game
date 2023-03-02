@@ -7,38 +7,38 @@ let lives = 0;
 function lobby() {
   points = 0;
   lives = 3;
-  // turns off end music if you click on the replay button
 
-  //enbales to start game on click
+  //starts game
   document.querySelector("#button_start").addEventListener("click", start);
 
-  //click on storyButton opens story
+  //opens story
   document.querySelector("#story_button").addEventListener("click", story);
 
-  //click on instructions opens instructions
+  //c opens instructions
   document
     .querySelector("#instructions_button")
     .addEventListener("click", instructions);
+
   //closes down instructions page
   document.querySelector("#instructions").classList.add("hidden");
+
   // hides instructions so we can return to play screen
   document.querySelector("#story").classList.add("hidden");
-  // hides instructions so we can return to play screen
+
+  showStartScreen();
+  //resets timer and starts it
+  startTimer();
+
+  //resets lives and points
+  reset();
 }
 //makes possible restart
 function showStartScreen() {
-  // document.querySelector("#start").classList.remove("hidden");
+  //makes only startscreen visible
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
-  document.querySelector("#game").classList.remove("hidden");
-
-  //make the objects clickable again
-  // document.querySelector("#butter_container").classList.remove("hidden");
-  // document.querySelector("#butter_container2").classList.remove("hidden");
-  // document.querySelector("#butter_container3").classList.remove("hidden");
-  // document.querySelector("#tomato_container").classList.remove("hidden");
-  // document.querySelector("#cabbage_container").classList.remove("hidden");
-  // document.querySelector("#hand_container").classList.remove("hidden");
+  document.querySelector("#game").classList.add("hidden");
+  document.querySelector("#start").classList.remove("hidden");
 }
 function instructions() {
   console.log("instruction clicked");
@@ -54,26 +54,20 @@ function story() {
 }
 
 function start() {
-  //stops sound effect from end scrrens
+  //stops sound effect from end screens
   document.querySelector("#sound_game_over").pause();
   document.querySelector("#sound_level_complete").pause();
 
   //plays background music
   document.querySelector("#sound_background_music").play();
 
-  showStartScreen();
-
   //removes start screen
   document.querySelector("#start").classList.add("hidden");
-  // nulstil point og liv
 
+  //   showStartScreen();
   animationStart();
   startPosition();
   listener();
-
-  startTimer();
-
-  reset();
 }
 
 function reset() {
@@ -428,7 +422,7 @@ function showIncrementedLives() {
 
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
-  document.querySelector("#replay_button").addEventListener("click", start);
+  document.querySelector("#replay_button").addEventListener("click", lobby);
   document.querySelector("#sound_game_over").play();
 
   stop();
@@ -436,50 +430,19 @@ function gameOver() {
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#replay_button2").addEventListener("click", start);
+  document.querySelector("#replay_button2").addEventListener("click", lobby);
 
   document.querySelector("#sound_level_complete").play();
   stop();
 }
 
 function stop() {
-  // Stop animationer
-  // document.querySelector("#butter_container").classList.remove("falling");
-  // document.querySelector("#butter_container2").classList.remove("falling");
-  // document.querySelector("#butter_container3").classList.remove("falling");
-  // document.querySelector("#tomato_container").classList.remove("falling");
-  // document.querySelector("#cabbage_container").classList.remove("falling");
-  // document.querySelector("#hand_container").classList.remove("falling");
-
-  // Fjern click
-  // document
-  //   .querySelector("#butter_container")
-  //   .removeEventListener("click", clickButter);
-  // document
-  //   .querySelector("#butter_container2")
-  //   .removeEventListener("click", clickButter);
-  // document
-  //   .querySelector("#butter_container3")
-  //   .removeEventListener("click", clickButter);
-  // document
-  //   .querySelector("#tomato_container")
-  //   .removeEventListener("click", clickTomato);
-  // document
-  //   .querySelector("#cabbage_container")
-  //   .removeEventListener("click", clickCabbage);
-  // document
-  //   .querySelector("#hand_container")
-  //   .removeEventListener("click", clickHand);
-
+  
+  //hides game thereby making it unclickable
   document.querySelector("#game").classList.add("hidden");
   //pauses background music
   document.querySelector("#sound_background_music").pause();
 
-  //hide objects when game stops
-  // document.querySelector("#butter_container").classList.add("hidden");
-  // document.querySelector("#butter_container2").classList.add("hidden");
-  // document.querySelector("#butter_container3").classList.add("hidden");
-  // document.querySelector("#tomato_container").classList.add("hidden");
-  // document.querySelector("#cabbage_container").classList.add("hidden");
-  // document.querySelector("#hand_container").classList.add("hidden");
+
+  
 }
