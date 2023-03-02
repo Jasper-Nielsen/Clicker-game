@@ -7,15 +7,19 @@ let lives = 0;
 function lobby() {
   points = 0;
   lives = 3;
-  //play botton img that starts game
-  // document.querySelector("#start").classList.remove("hidden");
+  // turns off end music if you click on the replay button
+
+  //enbales to start game on click
   document.querySelector("#button_start").addEventListener("click", start);
 
   document.querySelector("#story_button").addEventListener("click", story);
 
+  //click on instructions opens instructions
   document
     .querySelector("#instructions_button")
     .addEventListener("click", instructions);
+  //closes down instructions page
+  document.querySelector("#instructions").classList.add("hidden");
   // hides instructions so we can return to play screen
   document.querySelector("#story").classList.add("hidden");
   // hides instructions so we can return to play screen
@@ -48,14 +52,18 @@ function story() {
 }
 
 function start() {
-  //plays background music when pushing on start button
+  //stops sound effect from end scrrens
+  document.querySelector("#sound_game_over").pause();
+  document.querySelector("#sound_level_complete").pause();
 
-  document.querySelector("#instructions").classList.add("hidden");
+  //plays background music
+  document.querySelector("#sound_background_music").play();
+
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 
   document.querySelector("#game").classList.remove("hidden");
-  document.querySelector("#sound_background_music").play();
+
   //removes start screen
   document.querySelector("#start").classList.add("hidden");
   // nulstil point og liv
@@ -91,12 +99,11 @@ function resetLives() {
 }
 
 function startTimer() {
+  //resets timer via classList
   document.querySelector("#time_sprite").classList.remove("shrink");
-  document
-    .querySelector("#time_sprite").offsetWidth;
-    // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
-    document.querySelector("#time_sprite")
-    .classList.add("shrink");
+  document.querySelector("#time_sprite").offsetWidth;
+  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
+  document.querySelector("#time_sprite").classList.add("shrink");
 
   // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
   document
@@ -367,24 +374,6 @@ function tomatoGone() {
   tomato.addEventListener("click", clickTomato);
 }
 
-// function incrementPoints() {
-//   points++;
-
-//   displayPoints();
-//   if (points >= 10) {
-//     levelComplete();
-//   }
-// }
-
-// function decrementPoints() {
-//   points--;
-
-//   displayPoints();
-//   //   if (points >= 10) {
-//   //     levelComplete();
-//   //   }
-// }
-
 function changePoints(x) {
   if (x == 1) {
     points++;
@@ -392,11 +381,13 @@ function changePoints(x) {
     points--;
   }
 
-  if (points >= 4) {
-    levelComplete();
-  } else {
-    displayPoints();
-  }
+  displayPoints();
+
+  // if (points >= 4) {
+  //   levelComplete();
+  // } else {
+  //   displayPoints();
+  // }
 }
 
 function displayPoints() {
@@ -439,12 +430,16 @@ function showIncrementedLives() {
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#replay_button").addEventListener("click", start);
+  document.querySelector("#sound_game_over").play();
+
   stop();
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#replay_button2").addEventListener("click", start);
+
+  document.querySelector("#sound_level_complete").play();
   stop();
 }
 
