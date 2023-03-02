@@ -379,12 +379,6 @@ function changePoints(x) {
   }
 
   displayPoints();
-
-  // if (points >= 4) {
-  //   levelComplete();
-  // } else {
-  //   displayPoints();
-  // }
 }
 
 function displayPoints() {
@@ -402,7 +396,6 @@ function decrementLives() {
 }
 
 function incrementLives() {
-  console.log(`${lives}`);
   lives++;
 
   if (lives > 3) {
@@ -449,8 +442,5 @@ function stop() {
   //pauses background music
   document.querySelector("#sound_background_music").pause();
 
-  document.querySelector("#sound_butter").pause();
-  document.querySelector("#sound_cabbage").pause();
-  document.querySelector("#sound_hand_slap").pause();
-  document.querySelector("#sound_tomato").pause();
+  
 }
