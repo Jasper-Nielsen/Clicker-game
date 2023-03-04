@@ -5,31 +5,14 @@ let points = 0;
 let lives = 0;
 
 function lobby() {
-  //starts game
-  document.querySelector("#button_start").addEventListener("click", start);
+  //makes going from lvCoplete or gameOver animated
+  document.querySelector("#start").classList.add("animation-hide");
 
-  //opens story
-  document.querySelector("#story_button").addEventListener("click", story);
+navigation();
 
-  // opens instructions
-  document
-    .querySelector("#instructions_button")
-    .addEventListener("click", instructions);
-
-  //replay from gameOver
-  document.querySelector("#replay_button").addEventListener("click", lobby);
-
-  //replay from level complete
-  document.querySelector("#replay_button2").addEventListener("click", lobby);
-
+ 
   //hides instructions - return to lobby
   document.querySelector("#instructions").classList.add("hidden");
-
-  //go to lobby/startscreen
-  document.querySelector("#back_button2").addEventListener("click", lobby);
-
-  //go back to lobby
-  document.querySelector("#back_button").addEventListener("click", lobby);
 
   // hides story - return to play screen
   document.querySelector("#story").classList.add("hidden");
@@ -42,6 +25,30 @@ function lobby() {
   //resets lives and points
   reset();
 }
+
+function navigation(){
+  //starts game
+  document.querySelector("#button_start").addEventListener("click", start);
+
+  // opens instructions
+  document
+    .querySelector("#instructions_button")
+    .addEventListener("click", instructions);
+  //opens story
+  document.querySelector("#story_button").addEventListener("click", story);
+
+  //replay from gameOver
+  document.querySelector("#replay_button").addEventListener("click", lobby);
+
+  //replay from level complete
+  document.querySelector("#replay_button2").addEventListener("click", lobby);
+
+  //go from instructions lobby/startscreen
+  document.querySelector("#back_button2").addEventListener("click", lobby);
+
+  //go from story to lobby
+  document.querySelector("#back_button").addEventListener("click", lobby);
+}
 //makes possible restart
 function showStartScreen() {
   //makes only startscreen visible
@@ -51,16 +58,25 @@ function showStartScreen() {
   document.querySelector("#start").classList.remove("hidden");
 }
 function instructions() {
+  document.querySelector("#instructions").classList.add("animation-hide");
+
   //go to instructions
   document.querySelector("#instructions").classList.remove("hidden");
 }
 
 function story() {
+  //makes story appear in animated way
+  document.querySelector("#story").classList.add("animation-hide");
   //shows story
   document.querySelector("#story").classList.remove("hidden");
+
+    
+ 
 }
 
 function start() {
+  document.querySelector("#game").classList.add("animation-hide");
+
   document.querySelector("#game").classList.remove("hidden");
   //stops sound effect from end screens
   document.querySelector("#sound_game_over").pause();
@@ -422,11 +438,17 @@ function showIncrementedLives() {
   document.querySelector(`#life${lives}`).classList.add("happy_Smiley");
 }
 
+function removeAnimation(){
+
+}
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
 
+  document.querySelector("#game_over").classList.add("animation-hide");
+  document.querySelector("#game_over").addEventListener("animationend",)
+
   document.querySelector("#sound_game_over").play();
-  document.querySelector("#sound_game_over").currentTime = 5;
+  document.querySelector("#sound_game_over").currentTime = 0;
   stop();
 }
 
@@ -434,7 +456,7 @@ function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
 
   document.querySelector("#sound_level_complete").play();
-  document.querySelector("#sound_level_complete").currentTime = 5;
+  document.querySelector("#sound_level_complete").currentTime = 0;
   stop();
 
   document.querySelector("#level_complete_points").textContent = points;

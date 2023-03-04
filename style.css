@@ -79,7 +79,7 @@ h2 {
 }
 
 #story_header {
-  margin-top: 10%;
+  margin-top: 9vw;
   /* margin-bottom: 0%; */
   text-align: center;
 }
@@ -90,11 +90,12 @@ h2 {
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
+  height: 80%;
   overflow-y: scroll;
 }
 
 #story_text {
-  margin-top: 0vw;
+  /* margin-top: 0vw; */
   /* font-size: 12; */
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -121,7 +122,7 @@ h2 {
   margin-left: 10%;
   margin-right: 10%;
   overflow-y: scroll;
-  margin-top: 3%;
+  margin-top: 5vw;
 }
 
 #instructions_text {
@@ -202,6 +203,7 @@ h2 {
 #game.hidden,
 #story.hidden,
 #instructions.hidden {
+  /* animation to hide screen */
   display: none;
 }
 
@@ -264,22 +266,15 @@ h2 {
 .position1 {
   left: 10vw;
 }
-/* .position2 {
-  left: 20vw;
-} */
 
 .position2 {
   left: 20vw;
 }
-/* .position4 {
-  left: 40vw;
-} */
+
 .position3 {
   left: 40vw;
 }
-/* .position6 {
-  left: 60vw;
-} */
+
 .position4 {
   left: 60vw;
 }
@@ -291,10 +286,6 @@ h2 {
 .position6 {
   left: 90vw;
 }
-
-/* .position8 {
-  left: 80vw;
-} */
 
 /* UI */
 #game_ui {
@@ -468,4 +459,19 @@ h2 {
     scale: 0 1;
     background-color: red;
   }
+}
+
+@keyframes hide {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+    
+  }
+}
+
+.animation-hide {
+  animation: hide 2s forwards;
 }
