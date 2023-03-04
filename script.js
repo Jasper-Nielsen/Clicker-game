@@ -445,7 +445,7 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
 
   document.querySelector("#game_over").classList.add("animation-hide");
-  document.querySelector("#game_over").addEventListener("animationend",)
+  
 
   document.querySelector("#sound_game_over").play();
   document.querySelector("#sound_game_over").currentTime = 0;
@@ -453,6 +453,8 @@ function gameOver() {
 }
 
 function levelComplete() {
+   document.querySelector("#level_complete").classList.add("animation-hide");
+
   document.querySelector("#level_complete").classList.remove("hidden");
 
   document.querySelector("#sound_level_complete").play();
