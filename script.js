@@ -113,13 +113,13 @@ function resetPoints() {
 
 function resetLives() {
   lives = 3;
-  document.querySelector("#life1").classList.remove("broken_Smiley");
-  document.querySelector("#life2").classList.remove("broken_Smiley");
-  document.querySelector("#life3").classList.remove("broken_Smiley");
+  document.querySelector("#no_life1").classList.add("hidden");
+  document.querySelector("#no_life2").classList.add("hidden");
+  document.querySelector("#no_life3").classList.add("hidden");
 
-  document.querySelector("#life1").classList.add("happy_Smiley");
-  document.querySelector("#life2").classList.add("happy_Smiley");
-  document.querySelector("#life3").classList.add("happy_Smiley");
+  document.querySelector("#life1").classList.remove("hidden");
+  document.querySelector("#life2").classList.remove("hidden");
+  document.querySelector("#life3").classList.remove("hidden");
 }
 
 function startTimer() {
@@ -437,15 +437,18 @@ function incrementLives() {
 }
 
 function showDecrementedLives() {
-  document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
-  document.querySelector(`#life${lives}`).classList.remove("happy_Smiley");
+  document.querySelector(`#life${lives}`).classList.add("hidden");
+  
 
-  document.querySelector(`#life${lives}`).classList.add("broken_Smiley");
+  document.querySelector(`#no_life${lives}`).classList.remove("hidden");
 }
 
 function showIncrementedLives() {
-  document.querySelector(`#life${lives}`).classList.remove("broken_Smiley");
-  document.querySelector(`#life${lives}`).classList.add("happy_Smiley");
+ 
+
+  document.querySelector(`#no_life${lives}`).classList.add("hidden");
+
+   document.querySelector(`#life${lives}`).classList.remove("hidden");
 }
 
 function gameOver() {

@@ -208,7 +208,8 @@ h2 {
 #start.hidden,
 #game.hidden,
 #story.hidden,
-#instructions.hidden {
+#instructions.hidden,
+#no_life1.hidden, #no_life2.hidden, #no_life3.hidden {
   /* animation to hide screen */
   display: none;
 }
