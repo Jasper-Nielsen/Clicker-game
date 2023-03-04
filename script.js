@@ -5,18 +5,19 @@ let points = 0;
 let lives = 0;
 
 function lobby() {
-  //makes going from lvCoplete or gameOver animated
+  //makes going from lvCoplete, gameOver, story and instructions animated
   document.querySelector("#start").classList.add("animation-hide");
 
-navigation();
+  //call that makes navigation possible
+  navigation();
 
- 
   //hides instructions - return to lobby
   document.querySelector("#instructions").classList.add("hidden");
 
   // hides story - return to play screen
   document.querySelector("#story").classList.add("hidden");
 
+  //closes everything down and shows lobby screen
   showStartScreen();
 
   //resets timer and starts it
@@ -26,7 +27,9 @@ navigation();
   reset();
 }
 
-function navigation(){
+function navigation() {
+  //event listeners for menuScreen(story and instuctions) and postgame Screens (levelComplete and gameover)
+
   //starts game
   document.querySelector("#button_start").addEventListener("click", start);
 
@@ -43,13 +46,13 @@ function navigation(){
   //replay from level complete
   document.querySelector("#replay_button2").addEventListener("click", lobby);
 
-  //go from instructions lobby/startscreen
+  //go from instructions to lobby/startscreen
   document.querySelector("#back_button2").addEventListener("click", lobby);
 
   //go from story to lobby
   document.querySelector("#back_button").addEventListener("click", lobby);
 }
-//makes possible restart
+
 function showStartScreen() {
   //makes only startscreen visible
   document.querySelector("#game_over").classList.add("hidden");
@@ -58,8 +61,10 @@ function showStartScreen() {
   document.querySelector("#start").classList.remove("hidden");
 }
 function instructions() {
+  //makes instructions appear in animated way
   document.querySelector("#instructions").classList.add("animation-hide");
-
+  //resets animation on start screen so it runs again when going back
+  document.querySelector("#start").classList.remove("animation-hide");
   //go to instructions
   document.querySelector("#instructions").classList.remove("hidden");
 }
@@ -67,17 +72,19 @@ function instructions() {
 function story() {
   //makes story appear in animated way
   document.querySelector("#story").classList.add("animation-hide");
+  //resets animation on start screen so it runs again when going back
+  document.querySelector("#start").classList.remove("animation-hide");
   //shows story
   document.querySelector("#story").classList.remove("hidden");
-
-    
- 
 }
 
 function start() {
+  //makes game appear in animated way
   document.querySelector("#game").classList.add("animation-hide");
 
+  //shows game screen
   document.querySelector("#game").classList.remove("hidden");
+
   //stops sound effect from end screens
   document.querySelector("#sound_game_over").pause();
   document.querySelector("#sound_level_complete").pause();
@@ -85,10 +92,10 @@ function start() {
   //plays background music
   document.querySelector("#sound_background_music").play();
 
-  //removes start screen
+  //removes start/lobby screen
   document.querySelector("#start").classList.add("hidden");
 
-  //   showStartScreen();
+  
   animationStart();
   startPosition();
   listener();
@@ -276,16 +283,19 @@ function butterRestart() {
   this.classList.add("position" + pos);
 }
 
+
 function clickCabbage() {
   let cabbage = this;
   // Forhindr gentagne clicks
   cabbage.removeEventListener("click", clickCabbage);
 
+ 
+ 
   // Stop cabbage container
   cabbage.classList.add("paused");
 
   // sæt forsvind-animation på cabbage
-  cabbage.querySelector("img").classList.add("zoom_in");
+  cabbage.querySelector("img").classList.add("animation-tilt-n-move-shaking");
 
   // når forsvind-animation er færdig: coinGone
   cabbage.addEventListener("animationend", cabbageGone);
@@ -304,7 +314,7 @@ function cabbageGone() {
   // fjern forsvind-animation
 
   //   overvej om du vil have animation
-  cabbage.querySelector("img").classList.remove("zoom_in");
+  cabbage.querySelector("img").classList.remove("animation-tilt-n-move-shaking");
 
   // fjern pause
   cabbage.classList.remove("paused");
@@ -324,7 +334,7 @@ function clickHand() {
   hand.classList.add("paused");
 
   // sæt forsvind-animation på heart
-  hand.querySelector("img").classList.add("zoom_out");
+  hand.querySelector("img").classList.add("animation-slap-arm");
 
   // når forsvind-animation er færdig: heatGone
   hand.addEventListener("animationend", handGone);
@@ -340,7 +350,7 @@ function handGone() {
   hand.removeEventListener("animationend", handGone);
 
   // fjern forsvind-animation
-  hand.querySelector("img").classList.remove("zoom_out");
+  hand.querySelector("img").classList.remove("animation-slap-arm");
 
   // fjern pause
   hand.classList.remove("paused");
@@ -438,29 +448,33 @@ function showIncrementedLives() {
   document.querySelector(`#life${lives}`).classList.add("happy_Smiley");
 }
 
-function removeAnimation(){
-
-}
 function gameOver() {
+  //shows this screen
   document.querySelector("#game_over").classList.remove("hidden");
-
+//makes this screen animated
   document.querySelector("#game_over").classList.add("animation-hide");
-  
-
+//plays music on this screen
   document.querySelector("#sound_game_over").play();
   document.querySelector("#sound_game_over").currentTime = 0;
   stop();
+
+  // displays number of points on game over screen
+  document.querySelector("#game_over_points").textContent = points;
 }
 
 function levelComplete() {
-   document.querySelector("#level_complete").classList.add("animation-hide");
+  //makes this screen animated
+  document.querySelector("#level_complete").classList.add("animation-hide");
 
+  //shows this screen
   document.querySelector("#level_complete").classList.remove("hidden");
 
+  //plays music in screen
   document.querySelector("#sound_level_complete").play();
   document.querySelector("#sound_level_complete").currentTime = 0;
   stop();
 
+  //displays message and amount of points on this screen
   document.querySelector("#level_complete_points").textContent = points;
 }
 
