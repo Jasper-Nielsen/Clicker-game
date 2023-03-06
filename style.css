@@ -1,5 +1,5 @@
 body {
-  margin: 0 auto;
+  margin: 0;
   font-family: sans-serif;
   overflow: hidden;
 }
@@ -10,9 +10,10 @@ h2 {
 
 #screen {
   aspect-ratio: 16 / 9;
-  height: 100%;
+
   display: grid;
-  grid-template: 100% / 100%;
+  /* height=so whole game is in frame width */
+  grid-template: 90% / 100%;
 }
 
 #game {
@@ -79,7 +80,7 @@ h2 {
 }
 
 #story_header {
-  margin-top: 9vw;
+  
   /* margin-bottom: 0%; */
   text-align: center;
 }
@@ -90,7 +91,7 @@ h2 {
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
-  height: 80%;
+  /* height: 90%; */
   overflow-y: scroll;
 }
 
@@ -209,7 +210,9 @@ h2 {
 #game.hidden,
 #story.hidden,
 #instructions.hidden,
-#no_life1.hidden, #no_life2.hidden, #no_life3.hidden {
+#no_life1.hidden,
+#no_life2.hidden,
+#no_life3.hidden {
   /* animation to hide screen */
   display: none;
 }
@@ -309,6 +312,7 @@ h2 {
 
 /* Timer */
 #time_board {
+  
   position: relative;
 }
 
@@ -444,7 +448,6 @@ h2 {
   animation-play-state: paused;
 }
 
-
 @keyframes hide {
   from {
     opacity: 0%;
@@ -501,8 +504,6 @@ h2 {
   animation: tilt-n-move-shaking 500ms forwards;
 }
 
-
-
 @keyframes side-to-side {
   50% {
     transform: translate(5vw, 0);
@@ -515,7 +516,6 @@ h2 {
 .animation-slap-arm {
   animation: side-to-side 1s forwards;
 }
-
 
 /* ------------ TIMER ANIMATIONER ------------ */
 
