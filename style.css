@@ -91,7 +91,9 @@ h2 {
   margin-left: 10%;
   margin-right: 10%;
   /* height: 90%; */
-  overflow-y: scroll;
+  overflow: auto;
+  /* so text does not overflow background image */
+  height: 85%;
 }
 
 #story_text {
@@ -99,7 +101,7 @@ h2 {
   /* font-size: 12; */
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* ---------------Instructions-------------------- */
 #instructions {
   grid-area: 1 /1;
   z-index: 999;
@@ -109,6 +111,8 @@ h2 {
   text-align: center;
   background-image: url(images/Window2.png);
   background-size: 100% 100%;
+  height: 100%;
+  
 }
 
 #instructions_header {
@@ -118,17 +122,51 @@ h2 {
 #instructions_container {
   display: grid;
   grid-template-rows: auto auto;
-
-  margin-left: 10%;
-  margin-right: 10%;
-  
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 5vw;
+  margin-bottom: 5vw;
+  overflow: auto;
+
 }
 
-#instructions_text {
-  /* font-size: 12; */
+#instructions_grid {
   font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 0.1fr 0.5fr;
+  row-gap: 5%;
 }
+
+#item1_instruction{
+  margin-left: 0;
+}
+
+#item1_img_instruction_container {
+  
+  width: 4vw;
+}
+
+#item2_instruction{
+  margin-left: 0;
+}
+#item2_img_instruction_container {
+  width: 4vw;
+}
+
+#item3_instruction{
+  margin-left: -20%;
+}
+#item3_img_instruction_container {
+  width: 4vw;
+}
+
+#item4_instruction{
+  margin-left: -30%;
+}
+#item4_img_instruction_container {
+  width: 4vw;
+}
+
 #story_button,
 #instructions_button {
   margin-left: auto;
@@ -146,9 +184,10 @@ h2 {
 #back_button2 {
   margin-left: auto;
   margin-right: auto;
-  height: 20%;
+  height: 70%;
   width: 30%;
 }
+
 #replay_button,
 #replay_button2 {
   margin-top: 5vw;
