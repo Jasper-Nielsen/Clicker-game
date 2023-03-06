@@ -11,20 +11,14 @@ function lobby() {
   //call that makes navigation possible
   navigation();
 
-  //hides instructions - return to lobby
-  document.querySelector("#instructions").classList.add("hidden");
-
-  // hides story - return to play screen
-  document.querySelector("#story").classList.add("hidden");
+  
 
   //closes everything down and shows lobby screen
   showStartScreen();
 
-  //resets timer and starts it
-  startTimer();
+  
 
-  //resets lives and points
-  reset();
+ 
 }
 
 function navigation() {
@@ -59,6 +53,11 @@ function showStartScreen() {
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game").classList.add("hidden");
   document.querySelector("#start").classList.remove("hidden");
+  //hides instructions - return to lobby
+  document.querySelector("#instructions").classList.add("hidden");
+
+  // hides story - return to play screen
+  document.querySelector("#story").classList.add("hidden");
 }
 function instructions() {
   //makes instructions appear in animated way
@@ -79,6 +78,12 @@ function story() {
 }
 
 function start() {
+  //resets timer and starts it
+  startTimer();
+
+  //resets lives and points
+  reset();
+
   //makes game appear in animated way
   document.querySelector("#game").classList.add("animation-hide");
 
@@ -131,7 +136,7 @@ function startTimer() {
   // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
   document.querySelector("#time_sprite").classList.add("shrink");
 
-  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  // eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
   document
     .querySelector("#time_sprite")
     .addEventListener("animationend", timeIsUp);
@@ -362,7 +367,7 @@ function handGone() {
   // gør det muligt at klikke på heart igen
   hand.addEventListener("click", clickHand);
 
-  incrementLives();
+  
 }
 
 function clickTomato() {
