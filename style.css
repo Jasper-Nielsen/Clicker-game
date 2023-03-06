@@ -10,7 +10,7 @@ h2 {
 
 #screen {
   aspect-ratio: 16 / 9;
-
+  height: 100%;
   display: grid;
   grid-template: 100% / 100%;
 }
@@ -444,29 +444,6 @@ h2 {
   animation-play-state: paused;
 }
 
-/* ------------ TIMER ANIMATIONER ------------ */
-
-.shrink {
-  animation-name: shrink_kf;
-  animation-duration: 15s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes shrink_kf {
-  0% {
-    scale: 1 1;
-    background-color: limegreen;
-  }
-  50% {
-    background-color: rgb(255, 230, 0);
-  }
-  100% {
-    scale: 0 1;
-    background-color: red;
-  }
-}
 
 @keyframes hide {
   from {
@@ -524,9 +501,7 @@ h2 {
   animation: tilt-n-move-shaking 500ms forwards;
 }
 
-.hide-image {
-  animation: hide-image 1s forwards;
-}
+
 
 @keyframes side-to-side {
   50% {
@@ -539,4 +514,29 @@ h2 {
 
 .animation-slap-arm {
   animation: side-to-side 1s forwards;
+}
+
+
+/* ------------ TIMER ANIMATIONER ------------ */
+
+.shrink {
+  animation-name: shrink_kf;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+  0% {
+    scale: 1 1;
+    background-color: limegreen;
+  }
+  50% {
+    background-color: rgb(255, 230, 0);
+  }
+  100% {
+    scale: 0 1;
+    background-color: red;
+  }
 }

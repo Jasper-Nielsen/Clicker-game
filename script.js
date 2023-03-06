@@ -95,7 +95,6 @@ function start() {
   //removes start/lobby screen
   document.querySelector("#start").classList.add("hidden");
 
-  
   animationStart();
   startPosition();
   listener();
@@ -113,10 +112,13 @@ function resetPoints() {
 
 function resetLives() {
   lives = 3;
+
+  //removes angry smiley
   document.querySelector("#no_life1").classList.add("hidden");
   document.querySelector("#no_life2").classList.add("hidden");
   document.querySelector("#no_life3").classList.add("hidden");
 
+  //ads happy smiley
   document.querySelector("#life1").classList.remove("hidden");
   document.querySelector("#life2").classList.remove("hidden");
   document.querySelector("#life3").classList.remove("hidden");
@@ -283,14 +285,11 @@ function butterRestart() {
   this.classList.add("position" + pos);
 }
 
-
 function clickCabbage() {
   let cabbage = this;
   // Forhindr gentagne clicks
   cabbage.removeEventListener("click", clickCabbage);
 
- 
- 
   // Stop cabbage container
   cabbage.classList.add("paused");
 
@@ -314,7 +313,9 @@ function cabbageGone() {
   // fjern forsvind-animation
 
   //   overvej om du vil have animation
-  cabbage.querySelector("img").classList.remove("animation-tilt-n-move-shaking");
+  cabbage
+    .querySelector("img")
+    .classList.remove("animation-tilt-n-move-shaking");
 
   // fjern pause
   cabbage.classList.remove("paused");
@@ -438,25 +439,22 @@ function incrementLives() {
 
 function showDecrementedLives() {
   document.querySelector(`#life${lives}`).classList.add("hidden");
-  
 
   document.querySelector(`#no_life${lives}`).classList.remove("hidden");
 }
 
 function showIncrementedLives() {
- 
-
   document.querySelector(`#no_life${lives}`).classList.add("hidden");
 
-   document.querySelector(`#life${lives}`).classList.remove("hidden");
+  document.querySelector(`#life${lives}`).classList.remove("hidden");
 }
 
 function gameOver() {
   //shows this screen
   document.querySelector("#game_over").classList.remove("hidden");
-//makes this screen animated
+  //makes this screen animated
   document.querySelector("#game_over").classList.add("animation-hide");
-//plays music on this screen
+  //plays music on this screen
   document.querySelector("#sound_game_over").play();
   document.querySelector("#sound_game_over").currentTime = 0;
   stop();
