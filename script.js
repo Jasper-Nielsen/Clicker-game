@@ -94,6 +94,7 @@ function start() {
   document.querySelector("#sound_game_over").pause();
   document.querySelector("#sound_level_complete").pause();
 
+  document.querySelector("#sound_background_music").currentTime=0;
   //plays background music
   document.querySelector("#sound_background_music").play();
 
@@ -459,9 +460,11 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   //makes this screen animated
   document.querySelector("#game_over").classList.add("animation-hide");
+
+  document.querySelector("#sound_game_over").currentTime = 0;
   //plays music on this screen
   document.querySelector("#sound_game_over").play();
-  document.querySelector("#sound_game_over").currentTime = 0;
+  
   stop();
 
   // displays number of points on game over screen
@@ -475,9 +478,10 @@ function levelComplete() {
   //shows this screen
   document.querySelector("#level_complete").classList.remove("hidden");
 
+  document.querySelector("#sound_game_over").currentTime = 0;
   //plays music in screen
   document.querySelector("#sound_level_complete").play();
-  document.querySelector("#sound_level_complete").currentTime = 0;
+  
   stop();
 
   //displays message and amount of points on this screen
