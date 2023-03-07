@@ -2,6 +2,8 @@ body {
   margin: 0;
   font-family: sans-serif;
   overflow: hidden;
+  /* hinders marking / forhindrer markere objekter således de ikke bliver blå når der klikkes*/
+  user-select: none;
 }
 
 h2 {
