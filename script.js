@@ -190,22 +190,22 @@ function listener() {
   // Registrer click
   document
     .querySelector("#butter_container")
-    .addEventListener("click", clickButter);
+    .addEventListener("mousedown", clickButter);
   document
     .querySelector("#butter_container2")
-    .addEventListener("click", clickButter);
+    .addEventListener("mousedown", clickButter);
   document
     .querySelector("#butter_container3")
-    .addEventListener("click", clickButter);
+    .addEventListener("mousedown", clickButter);
   document
     .querySelector("#tomato_container")
-    .addEventListener("click", clickTomato);
+    .addEventListener("mousedown", clickTomato);
   document
     .querySelector("#cabbage_container")
-    .addEventListener("click", clickCabbage);
+    .addEventListener("mousedown", clickCabbage);
   document
     .querySelector("#hand_container")
-    .addEventListener("click", clickHand);
+    .addEventListener("mousedown", clickHand);
 
   //gives new position upon ended falling animation-iteration
   document
